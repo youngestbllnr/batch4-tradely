@@ -279,9 +279,9 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  x86_64-linux
   ruby
-  
+  x86_64-linux
+
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
@@ -314,4 +314,3 @@ RUBY VERSION
 
 BUNDLED WITH
    2.2.15
-

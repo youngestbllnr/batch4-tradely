@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2021_04_16_121048) do
     t.index ["user_id"], name: "index_buyers_stocks_on_user_id"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_roles_on_user_id"
+  end
+
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
     t.string "name"
@@ -43,4 +51,29 @@ ActiveRecord::Schema.define(version: 2021_04_16_121048) do
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "roles", "users"
 end
