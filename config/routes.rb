@@ -11,7 +11,7 @@ Rails.application.routes.draw do
                       { 
                         sign_in: 'login',
                         sign_out: 'logout',
-                        sign_up: 'get_started',
+                        sign_up: 'new',
                         registration: 'register',
                         confirmation: 'verification',
                         password: 'secret'
