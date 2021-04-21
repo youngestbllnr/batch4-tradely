@@ -1,65 +1,65 @@
-// Success Overlay
-#success {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(100% - 84px);
-    height: calc(100% - 84px);
-    background: #fff;
-    z-index: 124;
-}
+// // Success Overlay
+// #success {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: calc(100% - 84px);
+//     height: calc(100% - 84px);
+//     background: #fff;
+//     z-index: 124;
+// }
 
-#success #hero {
-    margin: 42px auto;
-}
+// #success #hero {
+//     margin: 42px auto;
+// }
 
-#success #hero #emoji {
-    font-size: 28pt;
-    margin: 0 0 0 -2px;
-}
+// #success #hero #emoji {
+//     font-size: 28pt;
+//     margin: 0 0 0 -2px;
+// }
 
-#success #hero #header {
-    font-weight: 900;
-    font-size: 18pt;
-    margin: 12px 0 6px;
-    line-height: 150%;
-}
+// #success #hero #header {
+//     font-weight: 900;
+//     font-size: 18pt;
+//     margin: 12px 0 6px;
+//     line-height: 150%;
+// }
 
-#success #hero #sub-header {
-    line-height: 180%;
-    font-weight: bold;
-    font-size: 12pt;
-    margin: 6px 0;
-}
+// #success #hero #sub-header {
+//     line-height: 180%;
+//     font-weight: bold;
+//     font-size: 12pt;
+//     margin: 6px 0;
+// }
 
-#success #hero .note {
-    font-size: 12pt;
-    margin: 16px 0;
-    line-height: 180%;
-}
+// #success #hero .note {
+//     font-size: 12pt;
+//     margin: 16px 0;
+//     line-height: 180%;
+// }
 
-#success #hero .note span {
-    font-weight: bold;
-    color: #56941E;
-}
+// #success #hero .note span {
+//     font-weight: bold;
+//     color: #56941E;
+// }
 
-#success #actions {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
+// #success #actions {
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+// }
 
-#success #actions a {
-    margin: 12px 0 0;
-}
+// #success #actions a {
+//     margin: 12px 0 0;
+// }
 
-@media screen and (max-width: 450px) {
-    #success #hero #usp {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: auto;
-        grid-column-gap: 0;
-        margin: 6px 0;
-    }
-}
+// @media screen and (max-width: 450px) {
+//     #success #hero #usp {
+//         display: grid;
+//         grid-template-columns: repeat(1, 1fr);
+//         grid-template-rows: auto;
+//         grid-column-gap: 0;
+//         margin: 6px 0;
+//     }
+// }

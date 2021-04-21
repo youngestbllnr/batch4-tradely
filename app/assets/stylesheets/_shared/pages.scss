@@ -1,42 +1,42 @@
-// pages.scss
-.page {
-    padding: 42px;
-}
+// // pages.scss
+// .page {
+//     padding: 42px;
+// }
 
-// Inner Layers
-.page-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    height: 100%;
-    width: 100%;
-    opacity: .24;
-    background: url(/index-accent.jpeg) 12% center no-repeat;
-    background-size: cover;
-    filter: blur(24px);
-    z-index: 0;
-}
+// // Inner Layers
+// .page-background {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: 0;
+//     height: 100%;
+//     width: 100%;
+//     opacity: .24;
+//     background: url(/index-accent.jpeg) 12% center no-repeat;
+//     background-size: cover;
+//     filter: blur(24px);
+//     z-index: 0;
+// }
 
-.page-foreground {
-    position: absolute;
-    top: 42px;
-    left: 42px;
-    width: calc(100% - 84px);
-    height: calc(100% - 84px);
-    z-index: 1;
-}
+// .page-foreground {
+//     position: absolute;
+//     top: 42px;
+//     left: 42px;
+//     width: calc(100% - 84px);
+//     height: calc(100% - 84px);
+//     z-index: 1;
+// }
 
-// Page Brand Section
-.page #brand .icon {
-    float: left;
-    max-width: 36px;
-}
+// // Page Brand Section
+// .page #brand .icon {
+//     float: left;
+//     max-width: 36px;
+// }
 
-.page #brand .logo {
-    display: inline-block;
-    font-size: 14pt;
-    color: #534292;
-    margin: auto;
-    padding: 8px;
-}
+// .page #brand .logo {
+//     display: inline-block;
+//     font-size: 14pt;
+//     color: #534292;
+//     margin: auto;
+//     padding: 8px;
+// }

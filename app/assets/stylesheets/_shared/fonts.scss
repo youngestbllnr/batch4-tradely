@@ -1,57 +1,57 @@
-// fonts.scss
-* {
-    font-family: "Montserrat", Helvetica, Arial, sans-serif;
-}
+// // fonts.scss
+// * {
+//     font-family: "Montserrat", Helvetica, Arial, sans-serif;
+// }
 
-// Import Fonts
-@font-face {
-    font-family: 'Robota';
-    font-style: normal;
-    font-weight: normal;
-    src: font-url('Robota.otf') format('opentype');
-}
+// // Import Fonts
+// @font-face {
+//     font-family: 'Robota';
+//     font-style: normal;
+//     font-weight: normal;
+//     src: font-url('Robota.otf') format('opentype');
+// }
 
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: normal;
-    src: font-url('Montserrat-Regular.otf') format('opentype');
-}
+// @font-face {
+//     font-family: 'Montserrat';
+//     font-style: normal;
+//     font-weight: normal;
+//     src: font-url('Montserrat-Regular.otf') format('opentype');
+// }
 
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: bold;
-    src: font-url('Montserrat-Medium.otf') format('opentype');
-}
+// @font-face {
+//     font-family: 'Montserrat';
+//     font-style: normal;
+//     font-weight: bold;
+//     src: font-url('Montserrat-Medium.otf') format('opentype');
+// }
 
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 800;
-    src: font-url('Montserrat-Bold.otf') format('opentype');
-}
+// @font-face {
+//     font-family: 'Montserrat';
+//     font-style: normal;
+//     font-weight: 800;
+//     src: font-url('Montserrat-Bold.otf') format('opentype');
+// }
 
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 900;
-    src: font-url('Montserrat-ExtraBold.otf') format('opentype');
-}
+// @font-face {
+//     font-family: 'Montserrat';
+//     font-style: normal;
+//     font-weight: 900;
+//     src: font-url('Montserrat-ExtraBold.otf') format('opentype');
+// }
 
-// Logo
-.logo {
-    font-family: "Robota";
-    font-weight: bold;
-    text-transform: uppercase;
-}
+// // Logo
+// .logo {
+//     font-family: "Robota";
+//     font-weight: bold;
+//     text-transform: uppercase;
+// }
 
-// Bold
-.bold {
-    font-weight: bold;
-}
+// // Bold
+// .bold {
+//     font-weight: bold;
+// }
 
-// Bolder
-.bolder {
-    font-weight: 800;
-}
+// // Bolder
+// .bolder {
+//     font-weight: 800;
+// }

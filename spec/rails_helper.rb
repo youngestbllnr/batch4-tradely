@@ -8,7 +8,7 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 require 'factory_bot_rails'
 
-Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require |f| }
+# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require |f| }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -34,7 +34,7 @@ RSpec.configure do |config|
 end
 
 Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
+    config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
   end
