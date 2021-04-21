@@ -18,6 +18,7 @@ gem 'hamlit-rails'
 
 gem 'iex-ruby-client'
 
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -38,4 +39,5 @@ group :test do
   gem 'webmock'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'rails-controller-testing'
 end

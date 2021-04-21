@@ -7,8 +7,11 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'factory_bot_rails'
+require 'rails-controller-testing'
 
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require |f| }
+Rails::Controller::Testing.install
+
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -39,3 +42,8 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+RSpec.configure do |config|
+  config.include Devise::Test::IntegrationHelpers, type: :request
+end
+

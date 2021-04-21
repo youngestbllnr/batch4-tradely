@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  default_url_options :host => "merino.mahusay@gmail.com"
+
   root 'main#index'
   devise_for :users, controllers: 
                       { 
