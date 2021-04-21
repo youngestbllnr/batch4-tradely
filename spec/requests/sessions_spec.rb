@@ -4,10 +4,10 @@ RSpec.describe "Sessions" do
     user = create(:user)
     sign_in user
     get root_path
-    # expect(response).to render_template(:index) # add gem 'rails-controller-testing' to your Gemfile first.
+    # expect(response).to render_template(:index)
     
     sign_out user
     get root_path
-    # expect(response).not_to render_template(:index) # add gem 'rails-controller-testing' to your Gemfile first.
+    # expect(response).not_to render_template(:index)
   end
 end

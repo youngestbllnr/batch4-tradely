@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  enum role: { buyer: 0, broker: 1 } 
+  enum role: { buyer: 0, broker: 1, admin: 2 } 
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
