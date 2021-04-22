@@ -14,6 +14,19 @@ class ApplicationController < ActionController::Base
 		end
   end
 
+  def api(x)  
+       
+	client = IEX::Api::Client.new(
+   
+		publishable_token: 'pk_e6d1a6773f504fa1b690c1bb25b22690',
+		endpoint: 'https://cloud.iexapis.com/v1'
+	
+	)
+	
+	client.quote(x)
+  
+  end
+
   protected
 
 	def configure_permitted_parameters

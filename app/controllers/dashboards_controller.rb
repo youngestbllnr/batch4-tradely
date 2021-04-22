@@ -21,7 +21,28 @@ class DashboardsController < ApplicationController
     end
 
     def buyer?
-        current_user.role == "buyer"
+        current_user.role == "buyer"   
+        # stocks
+            @array = getStockslist
+
+    end
+
+    def getStockslist
+        [
+        
+            @MSFT = api('MSFT'),
+            @TSLA = api('TSLA'),
+            @A = api('A'),
+            @APP = api('APP'),
+            @AAON = api('AAON'),
+            @AAWW = api('AAWW'),
+            @AB = api('AB'),
+            @ABB = api('ABB'),
+            @ABBV = api('ABBV'),
+            @ABC = api('ABC'),
+            @ABCM = api('ABCM')
+    
+        ]
     end
 
     def unless_admin
