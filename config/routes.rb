@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  default_url_options :host => "merino.mahusay@gmail.com"
+  default_url_options :host => "localhost", port: 3000 if Rails.env.development? || Rails.env.test?
+  default_url_options :host => "avion-tradely.herokuapp.com" if Rails.env.production?
 
   root 'main#index'
+
+  # Dashboard
+  get 'dashboard/buyer'     => 'dashboards#buyer'        , as: 'buyer_dashboard'
+  get 'dashboard/broker'    => 'dashboards#broker'       , as: 'broker_dashboard'
+  get 'dashboard/admin'     => 'dashboards#admin'        , as: 'admin_dashboard'
+
   devise_for :users, controllers: 
                       { 
                         sessions: 'users/sessions',
@@ -13,7 +20,7 @@ Rails.application.routes.draw do
                       { 
                         sign_in: 'login',
                         sign_out: 'logout',
-                        sign_up: 'get_started',
+                        sign_up: 'signup',
                         registration: 'register',
                         confirmation: 'verification',
                         password: 'secret'
