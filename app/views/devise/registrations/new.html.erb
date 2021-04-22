@@ -4,7 +4,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <%= f.label :role %>
-  <%= f.select :role, User.roles.keys %>
+  <%= f.select :role, User.roles.keys, selected: params[:role] %>
   
   <div class="field">
     <%= f.label :email, "Email Address" %><br />
