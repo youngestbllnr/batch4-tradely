@@ -27,24 +27,6 @@ class DashboardsController < ApplicationController
 
     end
 
-    def getStockslist
-        [
-        
-            @MSFT = api('MSFT'),
-            @TSLA = api('TSLA'),
-            @A = api('A'),
-            @APP = api('APP'),
-            @AAON = api('AAON'),
-            @AAWW = api('AAWW'),
-            @AB = api('AB'),
-            @ABB = api('ABB'),
-            @ABBV = api('ABBV'),
-            @ABC = api('ABC'),
-            @ABCM = api('ABCM')
-    
-        ]
-    end
-
     def unless_admin
         unless admin?
             flash[:danger] = "Unauthorized Access."
@@ -64,5 +46,22 @@ class DashboardsController < ApplicationController
             flash[:danger] = "Unauthorized Access."
             redirect_to root_path
         end
+    end
+
+    def getStockslist
+        [
+            @MSFT = api('MSFT'),
+            @TSLA = api('TSLA'),
+            @A = api('A'),
+            @APP = api('APP'),
+            @AAON = api('AAON'),
+            @AAWW = api('AAWW'),
+            @AB = api('AB'),
+            @ABB = api('ABB'),
+            @ABBV = api('ABBV'),
+            @ABC = api('ABC'),
+            @ABCM = api('ABCM')
+    
+        ]
     end
 end
