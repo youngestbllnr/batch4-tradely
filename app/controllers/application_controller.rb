@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
 		case resource.role
 		when "buyer"
-    	buyer_dashboard_path
+    		buyer_dashboard_path
 		when "broker"
 			broker_dashboard_path
 		else

@@ -10,7 +10,8 @@ class BuyersStockController < ApplicationController
     
       def create
         @buyers_stock = BuyersStock.new(buyers_stock_params)
-          if @buyers_stock.save
+        @transactions = Transaction.new(user_id: params[:user_id])
+          if @buyers_stock.save && @transactions.save
           end
       end
       private
@@ -21,7 +22,7 @@ class BuyersStockController < ApplicationController
     
     #     # Only allow a list of trusted parameters through.
         def buyers_stock_params
-          params.permit(:symbol, :company, :current_Price, :change, :previous_close, :user_id)
+          params.permit(:symbol, :company, :current_Price, :change, :previous_close,:buy_date, :user_id)
         #   symbol: params[:symbol],company: params[:company],current_Price: params[:current_Price], change: params[:change], previous_close: params[:previous_close] , user_id: params[:user_id]
         end
 end
