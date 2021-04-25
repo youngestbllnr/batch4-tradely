@@ -1,0 +1,6 @@
+<h1>transactions</h1>
+<% @transac.each do |d|%>
+    <hr>
+    <p>transaction Date - <%= d.buy_date %></p>
+    <p><%= d.symbol %></p>
+<%end%>

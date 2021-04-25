@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/buyers_stock' => 'buyers_stock#portfolio' , as: 'portfolio'
+  get '/buyers_stock/transactions' => 'buyers_stock#transactions' , as: 'transactions' 
   get 'buyers_stock/:id'   => 'buyers_stock#show' , as: 'show_stock'
   post '/buyers_stock' => 'buyers_stock#create' , as: 'create_stocks'
   default_url_options :host => "localhost", port: 3000 if Rails.env.development? || Rails.env.test?
