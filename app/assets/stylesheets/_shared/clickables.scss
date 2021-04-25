@@ -1,61 +1,61 @@
-// // clickables.scss
-// button:hover,
-// button:focus,
-// input[type=submit]:hover,
-// input[type=submit]:focus {
-//     cursor: pointer;
-//     filter: brightness(98%);
-// }
+// clickables.scss
+button:hover,
+button:focus,
+input[type=submit]:hover,
+input[type=submit]:focus {
+    cursor: pointer;
+    filter: brightness(98%);
+}
 
-// a:hover,
-// a:focus {
-//     cursor: pointer;
-//     filter: brightness(98%);
-// }
+a:hover,
+a:focus {
+    cursor: pointer;
+    filter: brightness(98%);
+}
 
-// a.in-text {
-//     color: inherit;
-// }
+a.in-text {
+    color: inherit;
+}
 
-// a.no-underline {
-//     text-decoration: none;
-// }
+a.no-underline {
+    text-decoration: none;
+}
 
-// button:disabled {
-//     opacity: 0.8;
-//     cursor: not-allowed !important;
-// }
+button:disabled {
+    opacity: 0.8;
+    cursor: not-allowed !important;
+}
 
-// input[type="submit"]:disabled {
-//     opacity: 0.8;
-//     cursor: not-allowed !important;
-// }
+input[type="submit"]:disabled {
+    opacity: 0.8;
+    cursor: not-allowed !important;
+}
 
-// .cta {
-//     display: block;
-//     width: 100%;
-//     font-size: 10pt;
-//     font-weight: bold;
-//     color: #ffffff;
-//     text-align: center;
-//     text-decoration: none;
-//     padding: 16px 0;
-//     border: none;
-//     border-radius: 12px;
-//     background-color: #534292;
-//     background-image: linear-gradient(135deg, #654A86, #534292);
-// }
+.cta {
+    display: block;
+    width: 100%;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    padding: 16px 0;
+    border: none;
+    border-radius: 12px;
+    background-color: #534292;
+    background-image: linear-gradient(135deg, #654A86, #534292);
+}
 
-// .sub-cta {
-//     display: block;
-//     width: 100%;
-//     font-size: 10pt;
-//     font-weight: bold;
-//     color: #534292;
-//     text-align: center;
-//     text-decoration: none;
-//     padding: 12px 0;
-//     border: none;
-//     border-radius: 12px;
-//     background: none;
-// }
+.sub-cta {
+    display: block;
+    width: 100%;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #534292;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px 0;
+    border: none;
+    border-radius: 12px;
+    background: none;
+}
