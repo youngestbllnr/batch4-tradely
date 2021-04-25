@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 		case resource.role
 		when "buyer"
     	buyer_dashboard_path
+		when "pending_broker"
+			broker_dashboard_path
 		when "broker"
 			broker_dashboard_path
 		else
