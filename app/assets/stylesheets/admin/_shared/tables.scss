@@ -1,0 +1,66 @@
+#table {
+    padding: 0;
+    margin: 0 0 124px;
+    overflow: auto;
+}
+
+#table.notifications {
+    margin: 16px 0 124px;
+}
+
+#table .row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+#table.dentists .row {
+    min-width: 2040px;
+    grid-template-columns: 1fr repeat(9, 2fr);
+}
+
+#table.dentists.admin .row {
+    min-width: 2240px;
+    grid-template-columns: 1fr repeat(10, 2fr);
+}
+
+#table.moderators .row {
+    grid-template-columns: 1fr 5fr 2fr 2fr;
+}
+
+#table.notifications .row {
+    grid-template-columns: 1fr 7fr 2fr;
+}
+
+#table.payments .row,
+#table.payouts .row {
+    min-width: 1500px;
+    grid-template-columns: 1fr repeat(7, 2fr);
+}
+
+#table.subscriptions .row {
+    min-width: 1240px;
+    grid-template-columns: 1fr repeat(6, 2fr);
+}
+
+#table .row {
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#table .row:last-child {
+    border-bottom: none;
+}
+
+#table .column {
+    margin: 0;
+    padding: 0 24px;
+    font-size: 10pt;
+    white-space: pre;
+    overflow: hidden;
+}
+
+#table #headers .column {
+    font-weight: bold;
+    font-size: 10pt;
+}

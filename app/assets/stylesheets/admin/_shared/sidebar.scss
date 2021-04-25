@@ -1,0 +1,63 @@
+// sidebar.scss
+#sidebar {
+    width: 274px;
+    height: 100vh;
+    padding: 24px;
+    background: #ffffff;
+}
+
+#sidebar #brand .icon {
+    float: left;
+    max-width: 36px;
+}
+
+#sidebar #brand .logo {
+    display: inline-block;
+    font-size: 14pt;
+    color: #534292;
+    margin: auto;
+    padding: 8px;
+}
+
+#sidebar #navigation {
+    margin: 55px 0;
+}
+
+#sidebar #navigation p {
+    width: 100%;
+    margin: 0 0 0 -24px;
+    padding: 20px 0 20px 24px;
+    font-size: 10pt;
+    font-weight: bold;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+#sidebar #navigation p.active {
+    background: #eeeeee;
+}
+
+#sidebar #navigation p span {
+    float: left;
+    margin-top: -6px;
+    margin-right: 16px;
+    font-size: 14pt;
+}
+
+#sidebar #actions {
+    width: unset;
+    padding: 24px;
+    text-align: left;
+}
+
+#sidebar #actions a {
+    width: fit-content;
+    margin: 0;
+    padding: 4px 6px;
+    font-weight: normal;
+    color: #000000;
+}
+
+#sidebar #actions a i {
+    margin-right: 5px;
+}

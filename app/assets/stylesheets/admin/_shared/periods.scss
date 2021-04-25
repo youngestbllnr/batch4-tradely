@@ -1,0 +1,17 @@
+#periods {
+    float: right;
+    padding: 4px;
+}
+
+#periods a {
+    display: inline-block;
+    width: 60px;
+    margin: 0 12px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+#periods a.active {
+    font-weight: 800;
+}
