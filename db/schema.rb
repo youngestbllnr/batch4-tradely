@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_130258) do
+ActiveRecord::Schema.define(version: 2021_04_25_043011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "buyers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "buyers_stocks", force: :cascade do |t|
+    t.string "symbol"
+    t.string "company"
+    t.float "current_Price"
+    t.float "change"
+    t.float "previous_close"
     t.bigint "user_id"
-    t.bigint "stocks_id"
-    t.index ["stocks_id"], name: "index_buyers_stocks_on_stocks_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_buyers_stocks_on_user_id"
   end
 

@@ -6,7 +6,7 @@
 
     <% @array.each do |d| %>
         <hr>
-        <p><%= link_to 'buy' %></p>
+        <p><%= link_to 'View',  show_stock_path(d.symbol) %></p>
         <p><%= d.company_name %></p>  
         <p>avg_total_volume = <%= d.avg_total_volume %></p>
         <p>latest_price = <%= d.latest_price %></p>
