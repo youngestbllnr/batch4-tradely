@@ -31,3 +31,9 @@
     </p>
 
 <% end%>
+
+		<% if flash.present? %>
+      <% flash.each do |key, value| %>
+        <p class="notice-float"><%= value %></p>
+      <% end %>
+		<% end %>

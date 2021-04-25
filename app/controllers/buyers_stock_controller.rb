@@ -2,6 +2,10 @@ class BuyersStockController < ApplicationController
       def show
         @stock = api(params[:id])
       end
+
+      def portfolio
+        @stock = BuyersStock.all
+      end
     
     #   def new
     #     @stock = api(params[:id])
@@ -12,6 +16,8 @@ class BuyersStockController < ApplicationController
         @buyers_stock = BuyersStock.new(buyers_stock_params)
         @transactions = Transaction.new(user_id: params[:user_id])
           if @buyers_stock.save && @transactions.save
+            flash[:success] = "Succeddfully bought"
+            redirect_to(buyer_dashboard_path)
           end
       end
       private
