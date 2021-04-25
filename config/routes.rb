@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'dashboard/broker'    => 'dashboards#broker'       , as: 'broker_dashboard'
   get 'dashboard/admin'     => 'dashboards#admin'        , as: 'admin_dashboard'
 
+  # Pending Brokers
+  get 'pending-brokers'     => 'brokers#pending'         , as: 'pending_brokers'
+
   devise_for :users, controllers: 
                       { 
                         sessions: 'users/sessions',
@@ -25,4 +28,8 @@ Rails.application.routes.draw do
                         confirmation: 'verification',
                         password: 'secret'
                       }
+  
+  resources :buyers
+  resources :brokers
+  resources :transactions
 end

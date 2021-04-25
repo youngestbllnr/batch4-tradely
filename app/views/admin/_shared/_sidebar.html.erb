@@ -1,0 +1,53 @@
+<aside id="sidebar">
+    <!-- Header -->
+    <header id="brand">
+        <a href="/_index" class="no-underline">
+            <p class="logo">Tradely</p>
+        </a>
+    </header>
+    <!-- Main: Navigation -->
+    <main id="navigation">
+        <%= link_to admin_dashboard_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%= 'active' if current_page?(admin_dashboard_path) %>">
+                <span class="icon">🏠</span> 
+                Home
+            </p>
+        <% end %>
+
+        <!-- Link to Buyers -->
+        <%= link_to buyers_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%= 'active' if current_page?(buyers_path) %>">
+                <span class="icon">🧑</span> 
+                Buyers
+            </p>
+        <% end %>
+
+        <!-- Link to Approved Brokers -->
+        <%= link_to brokers_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%= 'active' if current_page?(brokers_path) %>">
+                <span class="icon">💼</span> 
+                Brokers
+            </p>
+        <% end %>
+
+        <!-- Link to Pending Brokers -->
+        <%= link_to pending_brokers_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%= 'active' if current_page?(pending_brokers_path) %>">
+                <span class="icon">🕒</span> 
+                Pending Brokers
+            </p>
+        <% end %>
+
+        <!-- Link to Transactions -->
+        <%= link_to transactions_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%= 'active' if current_page?(transactions_path) %>">
+                <span class="icon">💳</span> 
+                Transactions
+            </p>
+        <% end %>
+    </main>
+    <!-- Footer -->
+    <footer id="actions">
+        <%= link_to "<i class='fal fa-sign-out'></i> Sign Out".html_safe, destroy_user_session_path, method: :delete, id: "signout-btn", class: "sub-cta" %>
+    </footer>
+</aside>

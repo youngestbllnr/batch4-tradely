@@ -1,0 +1,17 @@
+<% content_for :title, "Administrator / Tradely" %>
+<% content_for :layer_foreground_class, "admin-foreground" %>
+<% content_for :layer_background_class, "admin-background" %>
+<% content_for :notice_float_position, "bottom" %>
+<!-- Index Page -->
+<div id="index" class="dashboard">
+    <%= render "admin/_shared/sidebar" %>
+    <main id="body">
+        <div id="welcome">
+            <div>
+                <p class="icon">👋</p>
+                <p class="title">Welcome, <%= current_user.firstname %>!</p>
+                <p class="sub">Logged in as <%= current_user.email %>.</p>
+            <div>
+        </div>
+    </main>
+</div>
