@@ -4,12 +4,12 @@ class BuyersStockController < ApplicationController
       end
 
       def portfolio
-        @stock = BuyersStock.all
+        @stock = BuyersStock.where(user_id: current_user.id)
       end
 
       def transactions
         # Author.joins("INNER JOIN posts ON posts.author_id = author.id AND posts.published = 't'")
-        @transac = BuyersStock.joins("LEFT OUTER JOIN transactions ON  buyers_stocks.user_id = transactions.user_id" )
+        @transac = BuyersStock.joins("LEFT OUTER JOIN transactions ON  buyers_stocks.user_id = transactions.user_id" ).where(user_id: current_user.id)
       end
     
     #   def new

@@ -1,3 +1,4 @@
+<% if current_user && current_user.id%>
 <h1>Portfolio</h1>
     <% @stock.each do |d| %>
         <hr>
@@ -7,3 +8,4 @@
         <p>change = <%= d.change %></p>
         <p>previous_close = <%= d.previous_close %></p>
     <%end%>
+<%end%>
