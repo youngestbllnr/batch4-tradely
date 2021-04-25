@@ -17,20 +17,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= stylesheet_link_tag "/fontawesome/web/css/all.css", media: "all", "data-turbolinks-track" => "true" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <script src="https://kit.fontawesome.com/49c949ea4e.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
-    <!-- FLASH NOTICE -->
+    <!-- Page Content -->
+    <div id="layer-background" class="<%= yield(:layer_background_class) %>"></div>
+    <div id="layer-foreground" class="<%= yield(:layer_foreground_class) %>">
+      <%= yield %>
+    </div>
+
+    <!-- Flash Notice -->
 		<% if flash.present? %>
-      <% flash.each do |key, value| %>
-        <p class="notice-float"><%= value %></p>
+      <% flash.reverse_each do |key, value| %>
+        <p class="notice-float <%= yield(:notice_float_position) %>"><%= value.split(". ").each { |sentence| sentence.capitalize }.join(". ") %></p>
       <% end %>
 		<% end %>
   </body>
