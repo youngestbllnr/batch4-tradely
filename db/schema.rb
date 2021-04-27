@@ -10,52 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_055707) do
+ActiveRecord::Schema.define(version: 2021_04_27_110157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "buyers", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "buyers_stocks", force: :cascade do |t|
-    t.string "symbol"
-    t.string "company"
-    t.float "current_Price"
-    t.float "change"
-    t.float "previous_close"
-    t.date "buy_date"
+    t.float "unit"
+    t.bigint "stock_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["stock_id"], name: "index_buyers_stocks_on_stock_id"
     t.index ["user_id"], name: "index_buyers_stocks_on_user_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "category"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_roles_on_user_id"
   end
 
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
-    t.string "name"
-    t.integer "current_Price"
-    t.integer "change"
-    t.integer "previous_close"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.date "buy_date"
+    t.string "company_name"
+    t.float "current_price"
+    t.float "change"
+    t.float "previous_close"
+    t.boolean "on_sale", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_stocks_on_user_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "stock_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stock_id"], name: "index_transactions_on_stock_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
@@ -84,6 +72,5 @@ ActiveRecord::Schema.define(version: 2021_04_25_055707) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "roles", "users"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "stocks", "users"
 end

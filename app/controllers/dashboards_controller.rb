@@ -18,13 +18,16 @@ class DashboardsController < ApplicationController
 
     def broker?
         current_user.role == "broker"
+        # stocks
+        @array = getStockslist
     end
 
     def buyer?
         current_user.role == "buyer"   
-        # stocks
-            @array = getStockslist
-
+         # stocks
+        @array = getStockslist
+        @broker_stock = Stock.joins("LEFT OUTER JOIN users ON  stocks.user_id = users.id" ).where(:on_sale => "true")
+        # @transac = BuyersStock.joins("LEFT OUTER JOIN transactions ON  buyers_stocks.user_id = transactions.user_id" ).where(user_id: current_user.id)
     end
 
     def unless_admin

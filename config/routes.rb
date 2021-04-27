@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  get '/buyers_stock' => 'buyers_stock#portfolio' , as: 'portfolio'
-  get '/buyers_stock/transactions' => 'buyers_stock#transactions' , as: 'transactions' 
+  post 'transaction/create' =>   'transaction#create'      , as: 'add_stock'
+  post 'transaction/sell_it' =>   'transaction#sell_it'      , as: 'sell_it'
+
+  resource :brokers
+
+  get '/brokers/transactions' => 'brokers#transactions' , as: 'transactions'
+  get 'brokers/portfolio'              =>   'brokers#portfolio'       , as: 'portfolio'
+
+  get '/buyers_stock' => 'buyers_stock#portfolio' , as: 'buyer_portfolio'
+  get '/buyers_stock/transactions' => 'buyers_stock#transactions' , as: 'buyer_transactions' 
   get 'buyers_stock/:id'   => 'buyers_stock#show' , as: 'show_stock'
   post '/buyers_stock' => 'buyers_stock#create' , as: 'create_stocks'
   default_url_options :host => "localhost", port: 3000 if Rails.env.development? || Rails.env.test?

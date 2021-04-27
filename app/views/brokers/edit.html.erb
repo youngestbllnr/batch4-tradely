@@ -3,17 +3,12 @@
 <p>latest_price = <%= @stock.latest_price %></p>
 <p>change = <%= @stock.change %></p>
 <p>previous_close = <%= @stock.previous_close %></p>
-
-<%= form_with url: create_stocks_path do |f| %>
+<%= form_with url: sell_it_path do |f| %>
     <p> 
-        <%= f.hidden_field :unit , value: @stock.latest_price%>
-    </p>
-
-    <p> 
-        <%= f.text_field :user_id , value: current_user.id%>
+        <%= f.hidden_field :on_sale , value: "true"%>
     </p>
     <p> 
-        <%= f.submit 'buy', class: "btn btn-primary my-2"%>
+        <%= f.submit 'sell', class: "btn btn-primary my-2"%>
     </p>
 
 <% end%>

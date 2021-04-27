@@ -1,0 +1,18 @@
+<%= link_to 'Sign out', destroy_user_session_path , method: :delete %> /
+<%= link_to 'portfolio',portfolio_path%> / 
+<%= link_to 'transactions', transactions_path%>
+    <h1>Welcome, <%= current_user.role%></h1>
+    <p>fname: <%= current_user.firstname%>/email: <%= current_user.email%></p>
+        
+    <% @array.each do |d| %>
+        <hr>
+        <p><Strong><%= d.company_name %></Strong></p>  
+        <p>avg_total_volume = <%= d.avg_total_volume %></p>
+        <p>latest_price = <%= d.latest_price %></p>
+        <p>change = <%= d.change %></p>
+        <p>previous_close = <%= d.previous_close %></p>
+        <p><%= link_to 'view',   brokers_path(:id => d.symbol) %></p>
+    <%end%>
+
+
+    

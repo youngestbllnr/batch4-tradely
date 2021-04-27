@@ -2,10 +2,6 @@
 <h1>Portfolio</h1>
     <% @stock.each do |d| %>
         <hr>
-        <p>company = <%= d.company %></p>  
-        <p>symbol = <%= d.symbol %></p>
-        <p>latest_price = <%= d.current_Price %></p>
-        <p>change = <%= d.change %></p>
-        <p>previous_close = <%= d.previous_close %></p>
+        <p> <%= d.unit %></p>  
     <%end%>
 <%end%>
