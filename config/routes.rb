@@ -9,14 +9,15 @@ Rails.application.routes.draw do
   get 'dashboard/broker'    => 'dashboards#broker'       , as: 'broker_dashboard'
   get 'dashboard/admin'     => 'dashboards#admin'        , as: 'admin_dashboard'
 
-  # Pending Brokers
-  get 'pending-brokers'     => 'brokers#pending'         , as: 'pending_brokers'
+  # Brokers
+  get 'brokers'             => 'brokers#index'           , as: 'brokers'
+  get 'brokers/pending'     => 'brokers#pending'         , as: 'pending_brokers'
+  
+  post 'brokers/approve'    => 'brokers#approve'         , as: 'approve_broker'
 
   devise_for :users, controllers: 
-                      { 
-                        sessions: 'users/sessions',
-                        registrations: 'users/registrations',
-                        confirmations: 'users/confirmations'
+                      {
+                        registrations: 'users/registrations'
                       },
                      path: 'auth',
                      path_names:
@@ -30,6 +31,5 @@ Rails.application.routes.draw do
                       }
   
   resources :buyers
-  resources :brokers
   resources :transactions
 end
