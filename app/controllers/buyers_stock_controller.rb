@@ -9,7 +9,7 @@ class BuyersStockController < ApplicationController
       end
 
       def transactions
-        @transac = BuyersStock.joins("LEFT OUTER JOIN transactions ON  buyers_stocks.user_id = transactions.user_id" ).where(user_id: current_user.id)
+        @transac = Stock.joins("LEFT OUTER JOIN transactions ON  stocks.user_id = transactions.user_id" ).where(user_id: current_user.id)
       end
     
     #   def new

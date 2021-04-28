@@ -1,27 +1,27 @@
-<% if user_signed_in?%>   
+ 
     <%= link_to 'Sign out', destroy_user_session_path , method: :delete %> /
     <%= link_to 'portfolio', buyer_portfolio_path%> / 
     <%= link_to 'transactions', buyer_transactions_path%>
     <h1>Welcome, <%= current_user.role%></h1>
+    <h3>my Investment - </h3>
     <p>fname: <%= current_user.firstname%>/email: <%= current_user.email%></p>
-
+    <h3>list of stocks available</h3>
     <% @array.each do |d| %>
         <hr>
-        <p><%= link_to 'View',  show_stock_path(d.symbol) %></p>
         <p><%= d.company_name %></p>  
         <p>avg_total_volume = <%= d.avg_total_volume %></p>
         <p>latest_price = <%= d.latest_price %></p>
         <p>change = <%= d.change %></p>
         <p>previous_close = <%= d.previous_close %></p>
+        <p>previous_close = <%= d %></p>
     <%end%>
-
      <% @broker_stock.each do |d| %>
+
         <hr>
         <p><%= link_to 'View',  show_stock_path(d.symbol) %></p>
+        <p>Price = <%= d.current_price %></p> 
         <p><%= d.company_name %></p>  
         <p>change = <%= d.change %></p>
         <p>previous_close = <%= d.previous_close %></p>
-        <p><strong>Sale from broker</strong></p>
+        <p><strong>status = Open for sale</strong></p>
     <%end%>
-   
-<%end%>

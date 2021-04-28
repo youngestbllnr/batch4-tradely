@@ -27,6 +27,7 @@ class DashboardsController < ApplicationController
          # stocks
         @array = getStockslist
         @broker_stock = Stock.joins("LEFT OUTER JOIN users ON  stocks.user_id = users.id" ).where(:on_sale => "true")
+        # @user = User.joins("LEFT OUTER JOIN stocks ON  users.id = stocks.user_id" ).where(:role => "broker")
         # @transac = BuyersStock.joins("LEFT OUTER JOIN transactions ON  buyers_stocks.user_id = transactions.user_id" ).where(user_id: current_user.id)
     end
 
