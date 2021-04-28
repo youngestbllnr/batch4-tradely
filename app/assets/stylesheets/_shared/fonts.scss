@@ -5,10 +5,10 @@
 
 // Import Fonts
 @font-face {
-    font-family: 'Robota';
+    font-family: 'Logo';
     font-style: normal;
     font-weight: normal;
-    src: font-url('Robota.otf') format('opentype');
+    src: font-url('Logo.ttf') format('truetype');
 }
 
 @font-face {
@@ -41,8 +41,9 @@
 
 //Logo 
 .logo {
-    font-family: "Montserrat";
-    font-weight: 800;
+    font-family: "Logo";
+    font-weight: normal !important;
+    text-transform: uppercase;
 }
 
 //Bold
