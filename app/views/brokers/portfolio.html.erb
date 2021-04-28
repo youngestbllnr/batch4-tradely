@@ -7,7 +7,11 @@
         <p>latest_price = <%= d.current_price %></p>
         <p>change = <%= d.change %></p>
         <p>previous_close = <%= d.previous_close %></p>
-        <p>status = <%= d.on_sale %></p>
-        <p><%= link_to 'view_to_sell', edit_brokers_path(:id => d.symbol) %></p>
+        <%if d.on_sale == "Not_for_sale"%>
+            <p><%= link_to 'view_to_sell', edit_brokers_path(:id => d.symbol) %></p>
+        <%else%>
+            <p><b>status = <%= d.on_sale %></b></p>
+        <%end%>
+      
     <%end%>
 <%end%>
