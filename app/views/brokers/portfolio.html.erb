@@ -8,7 +8,15 @@
         <p>change = <%= d.change %></p>
         <p>previous_close = <%= d.previous_close %></p>
         <%if d.on_sale == "Not_for_sale"%>
-            <p><%= link_to 'view_to_sell', edit_brokers_path(:id => d.symbol) %></p>
+            <%= form_with url: sell_it_path(id: d.id) do |f| %>
+                <p> 
+                    <%= f.hidden_field :on_sale , value: "for_sale"%>
+                </p>
+                <p> 
+                    <%= f.submit 'sell', class: "btn btn-primary my-2"%>
+                </p>
+
+            <% end%>
         <%else%>
             <p><b>status = <%= d.on_sale %></b></p>
         <%end%>

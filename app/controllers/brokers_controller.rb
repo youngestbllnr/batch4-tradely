@@ -4,7 +4,7 @@ class BrokersController < ApplicationController
     end
 
     def edit
-        @stock = api(params[:id])
+        @stock = Stock.find(params[:id])
     end
 
     def portfolio

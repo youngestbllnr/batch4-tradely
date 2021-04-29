@@ -14,7 +14,8 @@ class TransactionController < ApplicationController
   end
   
   def sell_it
-    @brokers_stock = Stock.update(on_sale: params[:on_sale])  
+    @brokers_stock = Stock.find(params[:id])
+    @brokers_stock.update(on_sale: params[:on_sale])  
     redirect_to(portfolio_path) 
     flash[:success] = "Succeddfully Sell it"
   end
