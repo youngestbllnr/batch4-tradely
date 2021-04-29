@@ -1,0 +1,14 @@
+<p><%= @stock.company_name %></p>  
+<p>avg_total_volume = <%= @stock.avg_total_volume %></p>
+<p>latest_price = <%= @stock.latest_price %></p>
+<p>change = <%= @stock.change %></p>
+<p>previous_close = <%= @stock.previous_close %></p>
+<%= form_with url: sell_it_path do |f| %>
+    <p> 
+        <%= f.hidden_field :on_sale , value: "for_sale"%>
+    </p>
+    <p> 
+        <%= f.submit 'sell', class: "btn btn-primary my-2"%>
+    </p>
+
+<% end%>
