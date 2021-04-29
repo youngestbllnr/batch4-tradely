@@ -1,10 +1,14 @@
 class TransactionController < ApplicationController
   def create
+
     @brokers_stock = Stock.new(brokers_stock_params)
-    # @transactions = Transaction.new(user_id: params[:user_id],stock_id: Stock.id)
-    # && @transactions.save
-      if @brokers_stock.save 
-        flash[:success] = "Succeddfully addad"
+    @project = Stock.find_by_symbol(@brokers_stock.symbol)
+      if @project
+        flash[:success] = "already exist"
+        redirect_to(broker_dashboard_path)
+      elsif
+        @brokers_stock.save
+        flash[:success] = "success"
         redirect_to(broker_dashboard_path)
       end
   end
