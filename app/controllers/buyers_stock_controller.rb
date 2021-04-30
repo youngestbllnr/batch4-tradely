@@ -1,15 +1,15 @@
 class BuyersStockController < ApplicationController
       def show
-        @stock = api(params[:id])
+
         
       end
       
       def portfolio
-        @stock = BuyersStock.where(user_id: current_user.id)
+        @broker_stock = Stock.joins("LEFT OUTER JOIN buyers_stocks ON stocks.id = buyers_stocks.stock_id")
       end
 
       def transactions
-        @transac = Stock.joins("LEFT OUTER JOIN transactions ON  stocks.user_id = transactions.user_id" ).where(user_id: current_user.id)
+        @transac = BuyersStock.joins("LEFT OUTER JOIN stocks ON stocks.id = buyers_stocks.stock_id")
       end
     
     #   def new
@@ -19,8 +19,7 @@ class BuyersStockController < ApplicationController
     
       def create
         @buyers_stock = BuyersStock.new(buyers_stock_params)
-        @transactions = Transaction.new(user_id: params[:user_id])
-          if @buyers_stock.save && @transactions.save
+          if @buyers_stock.save
             flash[:success] = "Succeddfully bought"
             redirect_to(buyer_dashboard_path)
           end
@@ -33,7 +32,7 @@ class BuyersStockController < ApplicationController
     
     #     # Only allow a list of trusted parameters through.
         def buyers_stock_params
-          params.permit(:unit, :user_id)
+          params.permit(:unit, :user_id, :stock_id)
         #   symbol: params[:symbol],company: params[:company],current_Price: params[:current_Price], change: params[:change], previous_close: params[:previous_close] , user_id: params[:user_id]
         end
 end

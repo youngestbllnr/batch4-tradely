@@ -1,7 +1,28 @@
-<% if current_user && current_user.id%>
-<h1>Portfolio</h1>
-    <% @stock.each do |d| %>
+  <% @broker_stock.each do |d| %>
+
         <hr>
-        <p> <%= d.unit %></p>  
+        <p>Price = <%= d.current_price %></p> 
+        <p><%= d.company_name %></p>  
+        <p>change = <%= d.change %></p>
+        <p>previous_close = <%= d.previous_close %></p>
+        <p><strong><%= d.on_sale%></strong></p>
+        <% if d.on_sale == "for_sale"%>
+        <%= form_with url: create_stocks_path() do |f| %>
+            <p> 
+                <%= f.hidden_field :unit , value: d.current_price%>
+            </p>
+
+            <p> 
+                <%= f.hidden_field :user_id , value: d.user_id%>
+            </p>
+            <p> 
+                <%= f.hidden_field :stock_id , value: d.id%>
+            </p>
+            <p> 
+                <%= f.submit 'buy', class: "btn btn-primary my-2"%>
+            </p>
+
+            <% end%>
+        <% end%>
+
     <%end%>
-<%end%>

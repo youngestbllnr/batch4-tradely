@@ -15,13 +15,4 @@
         <p>previous_close = <%= d.previous_close %></p>
         <p>previous_close = <%= d %></p>
     <%end%>
-     <% @broker_stock.each do |d| %>
-
-        <hr>
-        <p><%= link_to 'View',  show_stock_path(d.symbol) %></p>
-        <p>Price = <%= d.current_price %></p> 
-        <p><%= d.company_name %></p>  
-        <p>change = <%= d.change %></p>
-        <p>previous_close = <%= d.previous_close %></p>
-        <p><strong>status = Open for sale</strong></p>
-    <%end%>
+   

@@ -1,5 +1,6 @@
 <h1>transactions</h1>
 <% @transac.each do |d|%>
     <hr>
-    <p>sell -  <%= d.symbol %></p>
+    <p>Sold -  <%= d.symbol %></p>
+    <p>date sold -  <%= d.updated_at %></p>
 <%end%>
