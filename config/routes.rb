@@ -31,5 +31,4 @@ Rails.application.routes.draw do
                       }
   
   resources :buyers
-  resources :transactions
 end

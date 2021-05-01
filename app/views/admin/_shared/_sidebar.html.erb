@@ -30,6 +30,15 @@
             </p>
         <% end %>
 
+        <!-- Link to Transactions 
+        <%# link_to transactions_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%# 'active' if current_page?(transactions_path) %>">
+                <span class="icon">💳</span> 
+                Transactions
+            </p>
+        <%# end %>
+        -->
+
         <!-- Link to Pending Brokers -->
         <%= link_to pending_brokers_path, class: "in-text no-underline" do %>
             <p class="nav-btn <%= 'active' if current_page?(pending_brokers_path) %>">
@@ -37,17 +46,9 @@
                 Pending Brokers
             </p>
         <% end %>
-
-        <!-- Link to Transactions -->
-        <%= link_to transactions_path, class: "in-text no-underline" do %>
-            <p class="nav-btn <%= 'active' if current_page?(transactions_path) %>">
-                <span class="icon">💳</span> 
-                Transactions
-            </p>
-        <% end %>
     </main>
     <!-- Footer -->
     <footer id="actions">
-        <%= link_to "<i class='fal fa-sign-out'></i> Sign Out".html_safe, destroy_user_session_path, method: :delete, id: "signout-btn", class: "sub-cta" %>
+        <%= link_to "<i class='fal fa-sign-out'></i> Sign Out".html_safe, destroy_user_session_path, id: "signout-btn", class: "sub-cta" %>
     </footer>
 </aside>

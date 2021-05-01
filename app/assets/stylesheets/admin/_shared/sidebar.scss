@@ -13,10 +13,10 @@
 
 #sidebar #brand .logo {
     display: inline-block;
-    font-size: 14pt;
+    font-size: 15pt;
     color: #534292;
     margin: auto;
-    padding: 8px;
+    padding: 5px 0;
 }
 
 #sidebar #navigation {
@@ -45,8 +45,10 @@
 }
 
 #sidebar #actions {
+    position: absolute;
+    bottom: 0;
     width: unset;
-    padding: 24px;
+    padding: 32px 8px;
     text-align: left;
 }
 

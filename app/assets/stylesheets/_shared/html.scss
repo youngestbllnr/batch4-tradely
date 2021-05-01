@@ -3,7 +3,8 @@ html {
     scroll-behavior: smooth;
 }
 
-Body body {
+//Body
+body {
     margin: 0;
     overflow-x: hidden;
 }
@@ -11,4 +12,8 @@ Body body {
 // Empty Options
 option[value=""] {
     display: none;
+}
+
+main {
+    position: relative;
 }

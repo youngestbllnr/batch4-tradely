@@ -5,22 +5,28 @@ FactoryBot.define do
       password_confirmation { "password" }
       firstname { "John" }
       lastname { "Doe" }
+      role { "buyer" }
   
       trait :buyer do
         role { "buyer" }
+        email { "buyer@tradely.com" }
       end
 
       trait :pending_broker do
         role { "pending_broker" }
+        email { "pending_broker@tradely.com" }
       end
   
       trait :broker do
         role { "broker" }
+        email { "broker@tradely.com" }
       end
   
       trait :admin do
         role { "admin" }
       end
+
+      after(:create) { |user| user.confirm }
     end
   end
   

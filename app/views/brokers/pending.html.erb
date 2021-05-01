@@ -1,0 +1,56 @@
+<% content_for :title, "Pending Brokers / Tradely" %>
+<% content_for :layer_foreground_class, "admin-foreground" %>
+<% content_for :layer_background_class, "admin-background" %>
+<% content_for :notice_float_position, "bottom" %>
+<!-- Index Page -->
+<div id="index" class="admin-dashboard">
+    <%= render "admin/_shared/sidebar" %>
+    <div id="body">
+        <header>
+            <div id="periods">
+                <%= link_to "Day", pending_brokers_path(period: "today"), class: "in-text no-underline #{ 'active' if params[:period] == "today" }" %>▪
+                <%= link_to "Week", pending_brokers_path(period: "this_week"), class: "in-text no-underline #{ 'active' if params[:period] == "this_week" }" %>▪
+                <%= link_to "Month", pending_brokers_path(period: "this_month"), class: "in-text no-underline #{ 'active' if params[:period] == "this_month" }" %>▪
+                <%= link_to "All Time", pending_brokers_path(period: "all_time"), class: "in-text no-underline #{ 'active' if params[:period] == "all_time" || params[:period].blank? }" %>
+            </div>
+            <h1 id="header"><span class="icon">🕒</span> Pending Brokers</h1>
+        </header>
+        <main>
+            <div id="counts">
+                <div class="count card">
+                    <p class="icon">⛅</p>
+                    <p class="label">Today</p>
+                    <p class="value"><%= @today.count %></p>
+                </div>
+                <div class="count card">
+                    <p class="icon">🎈</p>
+                    <p class="label">This Week</p>
+                    <p class="value"><%= @this_week.count %></p>
+                </div>
+                <div class="count card">
+                    <p class="icon">📅</p>
+                    <p class="label">This Month</p>
+                    <p class="value"><%= @this_month.count %></p>
+                </div>
+            </div>
+            <div id="table" class="card brokers">
+                <div id="headers" class="row">
+                    <p class="column">ID</p>
+                    <p class="column">Name</p>
+                    <p class="column">Email Address</p>
+                    <p class="column">--</p>
+                </div>
+                <% @pending_brokers.each do |pending_broker| %>
+                    <div id="broker_<%= pending_broker.id %>" class="row">
+                        <p class="column"><%= pending_broker.id %></p>
+                        <p class="column"><%= "#{ pending_broker.lastname }, #{ pending_broker.firstname }" %></p>
+                        <p class="column"><%= pending_broker.email %></p>
+                        <%= link_to approve_broker_path(id: pending_broker.id), method: :post, :data => {:confirm => 'Are you sure?'}, class: "in-text" do %>
+                            <p class="column">Approve</p>
+                        <% end %>
+                    </div>
+                <% end %>            
+            </div>
+        </main>
+    </div>
+</div>

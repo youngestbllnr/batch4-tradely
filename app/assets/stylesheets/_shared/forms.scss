@@ -15,7 +15,8 @@ form .country .flag {
     width: 24px;
 }
 
-Number Fields input::-webkit-outer-spin-button,
+// Number Fields
+input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
@@ -25,7 +26,8 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-Form Div #form {
+// Form Div
+#form {
     margin: 42px auto;
 }
 
@@ -48,7 +50,8 @@ Form Div #form {
     margin: 6px 0;
 }
 
-Form Components form {
+// Form Components
+form {
     margin: 24px 0;
 }
 
@@ -75,27 +78,23 @@ form textarea {
     background: #ffffff;
 }
 
-form .mobile-number input {
-    width: calc(100% - 124px);
-    padding: 16px;
-    font-weight: bold;
-    font-size: 12pt;
-    border: 2px solid #eee;
-    border-radius: 12px;
+form #user_role {
+    display: none;
 }
 
 form input[type="submit"] {
     width: 100%;
 }
 
-form #note {
+form .note {
     font-size: 10pt;
     opacity: 0.8;
     margin: 16px 0;
     line-height: 150%;
+    padding: 2px;
 }
 
-form .actions {
+form .actions.absolute {
     position: absolute;
     left: 0;
     bottom: 0;

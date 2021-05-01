@@ -16,6 +16,59 @@ class ApplicationController < ActionController::Base
 		end
   end
 
+  def admin?
+		current_user.role == "admin"
+	end
+
+	def broker?
+		current_user.role == "broker"
+	end
+
+	def buyer?
+		current_user.role == "buyer"
+	end
+
+	def unless_admin
+		unless admin?
+			flash[:danger] = "Unauthorized Access."
+			redirect_to root_path
+		end
+	end
+
+	def unless_broker
+		unless broker?
+			flash[:danger] = "Unauthorized Access."
+			redirect_to root_path
+		end
+	end
+
+	def unless_buyer
+		unless buyer?
+			flash[:danger] = "Unauthorized Access."
+			redirect_to root_path
+		end
+	end
+
+	# Filter Records by Date Range
+	def today(query)
+		query.where(created_at: Time.current.beginning_of_day..Time.current.end_of_day)
+	end
+
+	def this_week(query)
+		query.where(created_at: Time.current.beginning_of_week..Time.current.end_of_week)
+	end
+
+	def this_month(query)
+		query.where(created_at: Time.current.beginning_of_month..Time.current.end_of_month)
+	end
+
+	# Sets count of query on specific periods
+	def counts(query)
+		@today = today(query)
+		@this_week = this_week(query)
+		@this_month = this_month(query)
+	end
+
   protected
 
 	def configure_permitted_parameters

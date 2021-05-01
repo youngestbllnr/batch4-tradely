@@ -9,39 +9,5 @@ class DashboardsController < ApplicationController
     def broker; end
 
     def admin; end
-
-    protected
-
-    def admin?
-        current_user.role == "admin"
-    end
-
-    def broker?
-        current_user.role == "broker"
-    end
-
-    def buyer?
-        current_user.role == "buyer"
-    end
-
-    def unless_admin
-        unless admin?
-            flash[:danger] = "Unauthorized Access."
-            redirect_to root_path
-        end
-    end
-
-    def unless_broker
-        unless broker?
-            flash[:danger] = "Unauthorized Access."
-            redirect_to root_path
-        end
-    end
-
-    def unless_buyer
-        unless buyer?
-            flash[:danger] = "Unauthorized Access."
-            redirect_to root_path
-        end
-    end
+    
 end

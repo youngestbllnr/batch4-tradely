@@ -1,42 +1,56 @@
-<h2>Sign up</h2>
+<% content_for :title, "Sign Up as #{ @role.capitalize } / Tradely" %>
+<% content_for :layer_foreground_class, "relative-foreground" %>
+<!-- Registration Page -->
+<div id="registration" class="page">
+    <div class="page-background"></div>
+    <div class="page-foreground">
+        <header id="brand">
+          <a href="/" class="no-underline">
+            <p class="logo bloop">Tradely</p>
+          </a>
+        </header>
+        <main id="form">
+            <p id="emoji">📝</p>
+            <p id="header">Sign Up as <%= @role.capitalize =%></p>
+            <p id="sub-header">Create your tradely <%= @role %> account now.</p>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "users/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+              <!-- Role Selection -->
+              <%= f.select :role, ["buyer", "broker", "admin"], selected: @role %>
 
-  <%= f.label :role %>
-  <%= f.select :role, User.roles.keys, selected: params[:role] %>
-  
-  <div class="field">
-    <%= f.label :email, "Email Address" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+              <div class="field">
+                <%= f.label :firstname, "🧑 Enter your first name" %>
+                <%= f.text_field :firstname, autocomplete: "firstname", placeholder: "First Name", required: true  %>
+              </div>
+              
+              <div class="field">
+                <%= f.label :lastname, "👪 Enter your last name" %>
+                <%= f.text_field :lastname, autocomplete: "lastname", placeholder: "Last Name", required: true  %>
+              </div>
 
-  <div class="field">
-    <%= f.label :firstname, "First Name" %><br />
-    <%= f.text_field :firstname, autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :lastname, "Last Name" %><br />
-    <%= f.text_field :lastname, autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+              <div class="field">
+                <%= f.label :email, "📧 Enter your email address" %>
+                <%= f.email_field :email, autocomplete: "email", placeholder: "Email Address", onfocus: "switchNotes()", onblur: "switchNotes()", required: true %>
+              </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+              <div class="field">
+                <%= f.label :password, "🔑 Create your password" %>
+                <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", required: true %>
+              </div>
 
-  <div class="actions">
-    <%= f.submit "Sign Up" %>
-  </div>
-<% end %>
+              <div class="field">
+                <%= f.label :password_confirmation, "🔐 Confirm your password" %>
+                <%= f.password_field :password_confirmation, autocomplete: "confirm-password", placeholder: "Confirm Password", required: true %>
+              </div>
 
-<%= render "devise/shared/links" %>
+              <p class="note" style="display: none;">We'll send a verification code to your email address.</p>
+              <p class="note" style="display: block;">Have an account already? <%= link_to "Log In", new_user_session_path, class: "in-text" %></p>
+
+              <div class="actions">
+                <%= f.submit "Sign Up", class: "cta" %>
+              </div>
+            <% end %>
+        </main>
+    </div>
+</div>

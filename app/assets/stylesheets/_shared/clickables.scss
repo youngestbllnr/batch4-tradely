@@ -21,6 +21,36 @@ a.no-underline {
     text-decoration: none;
 }
 
+a.primary-button {
+    display: inline-block;
+    background: #534292;
+    color: #ffffff;
+    font-size: 10pt;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 0 0 16px;
+    box-shadow: 1px 3px 6px #00000024;
+}
+
+a.button {
+    display: inline-block;
+    background: #ffffff;
+    color: #222222;
+    font-size: 10pt;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 0 0 16px;
+    box-shadow: 1px 3px 6px #00000024;
+}
+
+a i {
+    margin-right: 5px;
+}
+
 button:disabled {
     opacity: 0.8;
     cursor: not-allowed !important;

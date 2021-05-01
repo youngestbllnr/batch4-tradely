@@ -21,10 +21,12 @@
     z-index: 1;
 }
 
-#layer-foreground.registration-foreground,
-#layer-foreground.dashboard-foreground {
+#layer-foreground.relative-foreground {
+    position: relative;
+    top: unset;
+    left: unset;
+    width: unset;
     height: unset;
-    min-height: 100vh;
 }
 
 @media screen and (max-width: 624px) {

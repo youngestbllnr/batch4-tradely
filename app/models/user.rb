@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  enum role: { buyer: "buyer", broker: "pending_broker", admin: "admin" } 
+  has_many :buyersstocks
+  has_many :transactions
+  
+  enum role: { buyer: "buyer", pending_broker: "pending_broker", broker: "broker", admin: "admin" } 
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -7,6 +10,4 @@ class User < ApplicationRecord
 
   validates :firstname, allow_blank: false, presence: true
   validates :lastname, allow_blank: false, presence: true
-
-
 end

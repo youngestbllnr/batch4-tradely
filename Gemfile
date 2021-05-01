@@ -18,7 +18,6 @@ gem 'hamlit-rails'
 
 gem 'iex-ruby-client'
 
-
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -32,6 +31,7 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'database_rewinder'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'

@@ -1,26 +1,35 @@
-<h2>Log in</h2>
+<% content_for :title, "Log In / Tradely" %>
+<!-- Log In Page -->
+<div id="moderator-login" class="page">
+    <div class="page-background"></div>
+    <div class="page-foreground">
+        <header id="brand">
+          <a href="/" class="no-underline">
+            <p class="logo bloop">Tradely</p>
+          </a>
+        </header>
+        <main id="form">
+            <p id="emoji">🔐</p>
+            <p id="header">Log In</p>
+            <p id="sub-header">Please enter your email and password.</p>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= render "users/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+              <div class="field">
+                <%= f.email_field :email, autocomplete: "email", placeholder: "Email Address", required: true %>
+              </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+              <div class="field">
+                <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", required: true %>
+              </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+              <p class="note">Don't have an account? <%= link_to "Sign Up", new_user_registration_path, class: "in-text" %></p>
+
+              <div class="actions absolute">
+                <%= f.submit "Log In", class: "cta" %>
+              </div>
+            <% end %>
+        </main>
     </div>
-  <% end %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>

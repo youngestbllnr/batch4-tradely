@@ -1,0 +1,66 @@
+<% content_for :title, "Create a Buyer / Tradely" %>
+<% content_for :layer_foreground_class, "relative-foreground" %>
+<div id="new-buyer" class="page admin-form">
+    <div class="page-accent gradient"></div>
+    <!-- Navigation Bar -->
+    <header id="nav">
+        <p class="header">Create a Buyer</p>
+        <!-- Back Button -->
+        <div id="left">
+            <a href="/buyers" class="in-text no-underline">
+                <div id="back-btn">
+                    <i class="icon fal fa-arrow-left"></i>
+                </div>
+            </a>
+        </div>
+    </header>
+    <!-- Create a Buyer -->
+    <main id="buyer-form">
+        <div id="guide">
+            <!-- Header -->
+            <div class="card">
+                <p id="header">New Buyer Form</p>                                                           
+            </div>
+            <!-- Terms -->
+            <div id="terms" class="card" style="display: block;">
+                <p class="term">🙋‍♂️ Manually create a buyer account by providing their first name, last name, email, and password below.</p>
+            </div>
+        </div>
+        <!-- Form -->
+        <div id="form">
+            <%= form_with(model: @buyer, url: buyers_path) do |form| %>
+                <%= @buyer.errors.full_messages.first if @buyer.errors.any? %>
+
+                <div class="field">
+                    <%= form.label :firstname, "🧑 Enter buyer's first name" %>
+                    <%= form.text_field :firstname, placeholder: "First Name", autocomplete: "firstname", required: true %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :lastname, "👪 Enter buyer's last name" %>
+                    <%= form.text_field :lastname, placeholder: "Last Name", autocomplete: "lastname", required: true %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :email, "👪 Enter buyer's email address" %>
+                    <%= form.text_field :email, placeholder: "Email Address", autocomplete: "email", required: true %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :password, "🔑 Enter buyer's password" %>
+                    <%= form.password_field :password, placeholder: "Password", autocomplete: "new-password", required: true %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :password_confirmation, "🔐 Confirm buyer's password" %>
+                    <%= form.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "confirm-password", required: true %>
+                </div>
+                
+                <div class="actions">
+                    <%= form.submit "Submit", class: "cta" %>
+                    <%= link_to "Cancel", buyers_path, class: "sub-cta" %>
+                </div>
+            <% end %>
+        </div>
+    </main>
+</div>

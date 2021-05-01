@@ -26,6 +26,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include FactoryBot::Syntax::Methods
+  
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.before(:suite) do
     DatabaseRewinder.clean_all
@@ -47,3 +49,10 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
 end
 
+# Cabybara Login
+def admin_login(user)
+  visit new_user_session_path
+  fill_in('Email Address', with: user.email)
+  fill_in('Password', with: user.password)
+  click_on('Log In')
+end

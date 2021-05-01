@@ -14,33 +14,13 @@
     grid-template-columns: auto;
 }
 
-#table.dentists .row {
-    min-width: 2040px;
-    grid-template-columns: 1fr repeat(9, 2fr);
+#table.buyers .row {
+    grid-template-columns: 1fr repeat(3, 2fr) 1fr 1fr;
 }
 
-#table.dentists.admin .row {
-    min-width: 2240px;
-    grid-template-columns: 1fr repeat(10, 2fr);
-}
-
-#table.moderators .row {
-    grid-template-columns: 1fr 5fr 2fr 2fr;
-}
-
-#table.notifications .row {
-    grid-template-columns: 1fr 7fr 2fr;
-}
-
-#table.payments .row,
-#table.payouts .row {
-    min-width: 1500px;
-    grid-template-columns: 1fr repeat(7, 2fr);
-}
-
-#table.subscriptions .row {
-    min-width: 1240px;
-    grid-template-columns: 1fr repeat(6, 2fr);
+#table.brokers .row,
+#table.transactions .row {
+    grid-template-columns: 1fr repeat(3, 2fr);
 }
 
 #table .row {

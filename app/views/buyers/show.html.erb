@@ -1,0 +1,33 @@
+<% content_for :title, "Buyer Details / Tradely" %>
+<div id="view" class="page">
+    <div class="page-accent gradient"></div>
+    <!-- Navigation Bar -->
+    <header id="nav">
+        <p class="header">Buyer Details</p>
+        <!-- Profile Button -->
+        <div id="left">
+            <%= link_to buyers_path, class: "in-text no-underline" do %>
+                <div id="back-btn">
+                    <i class="icon fal fa-arrow-left"></i>
+                </div>
+            <% end %>
+        </div>
+    </header>
+    <!-- Buyer Details -->
+    <main>
+        <div id="details" class="card">
+            <div class="detail">
+                <p class="label">Name</p>
+                <p class="value"><%= "#{ @buyer.lastname }, #{ @buyer.firstname }" %></p>
+            </div>
+            <div class="detail">
+                <p class="label">Email</p>
+                <p class="value"><%= @buyer.email %></p>
+            </div>
+            <div class="detail">
+                <p class="label">Date Joined</p>
+                <p class="value"><%= @buyer.created_at.strftime("%b %e, %Y — %l:%M %p") %></p>
+            </div>
+        </div>
+    </main>
+</div>

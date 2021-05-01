@@ -1,0 +1,67 @@
+<% content_for :title, "Buyers / Tradely" %>
+<% content_for :layer_foreground_class, "admin-foreground" %>
+<% content_for :layer_background_class, "admin-background" %>
+<% content_for :notice_float_position, "bottom" %>
+<!-- Index Page -->
+<div id="index" class="admin-dashboard">
+    <%= render "admin/_shared/sidebar" %>
+    <div id="body">
+        <header>
+            <div id="periods">
+                <%= link_to "Day", buyers_path(period: "today"), class: "in-text no-underline #{ 'active' if params[:period] == "today" }" %>▪
+                <%= link_to "Week", buyers_path(period: "this_week"), class: "in-text no-underline #{ 'active' if params[:period] == "this_week" }" %>▪
+                <%= link_to "Month", buyers_path(period: "this_month"), class: "in-text no-underline #{ 'active' if params[:period] == "this_month" }" %>▪
+                <%= link_to "All Time", buyers_path(period: "all_time"), class: "in-text no-underline #{ 'active' if params[:period] == "all_time" || params[:period].blank? }" %>
+            </div>
+            <h1 id="header"><span class="icon">🧑</span> Buyers</h1>
+        </header>
+        <main>
+            <div id="counts">
+                <div class="count card">
+                    <p class="icon">⛅</p>
+                    <p class="label">Today</p>
+                    <p class="value"><%= @today.count %></p>
+                </div>
+                <div class="count card">
+                    <p class="icon">🎈</p>
+                    <p class="label">This Week</p>
+                    <p class="value"><%= @this_week.count %></p>
+                </div>
+                <div class="count card">
+                    <p class="icon">📅</p>
+                    <p class="label">This Month</p>
+                    <p class="value"><%= @this_month.count %></p>
+                </div>
+            </div>
+            <div id="actions" class="align-right">
+                <%= link_to "<i class='far fa-plus'></i> New Buyer".html_safe, new_buyer_path, class: "button" %>
+            </div>
+            <div id="table" class="card buyers">
+                <div id="headers" class="row">
+                    <p class="column">ID</p>
+                    <p class="column">Name</p>
+                    <p class="column">Email Address</p>
+                    <p class="column">Joined</p>
+                    <p class="column">--</p>
+                    <p class="column">--</p>
+                </div>
+                <% @buyers.each do |buyer| %>
+                    <div id="buyer_<%= buyer.id %>" class="row">
+                        <p class="column"><%= buyer.id %></p>
+                        <%= link_to buyer_path(buyer), class: "in-text" do %>
+                            <p class="column"><%= "#{ buyer.lastname }, #{ buyer.firstname }" %></p>
+                        <% end %>
+                        <p class="column"><%= buyer.email %></p>
+                        <p class="column"><%= buyer.created_at.strftime("%b %e, %Y — %l:%M %p") %></p>
+                        <%= link_to edit_buyer_path(buyer), class: "in-text" do %>
+                            <p class="column">Edit</p>
+                        <% end %>
+                        <%= link_to buyer_path(buyer), method: :delete, :data => {:confirm => 'Are you sure?'}, class: "in-text" do %>
+                            <p class="column">Delete</p>
+                        <% end %>
+                    </div>
+                <% end %>            
+            </div>
+        </main>
+    </div>
+</div>
