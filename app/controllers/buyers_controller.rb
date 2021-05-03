@@ -3,12 +3,12 @@ class BuyersController < ApplicationController
   before_action :unless_admin
 
   def index
-    @buyers = User.all.where(role: "buyer")
+    @buyers = User.all.where(role: 'buyer')
     @buyers = @buyers.order('id DESC')
     counts(@buyers)
-    @buyers = @today if params[:period] == "today"
-    @buyers = @this_week if params[:period] == "this_week"
-    @buyers = @this_month if params[:period] == "this_month"
+    @buyers = @today if params[:period] == 'today'
+    @buyers = @this_week if params[:period] == 'this_week'
+    @buyers = @this_month if params[:period] == 'this_month'
   end
 
   # GET /buyers/new
@@ -31,7 +31,7 @@ class BuyersController < ApplicationController
 
 		respond_to do |format|
 			if @buyer.save && @buyer.confirm
-        format.html { redirect_to buyers_path(anchor: "buyer_#{ @buyer.id }"), notice: "Buyer was successfully created." }
+        format.html { redirect_to buyers_path(anchor: "buyer_#{ @buyer.id }"), notice: 'Buyer was successfully created.' }
         format.json { render :show, status: :created, location: @buyer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class BuyersController < ApplicationController
   def update
     respond_to do |format|
       if @buyer.update(buyer_params)
-        format.html { redirect_to buyers_path(anchor: "buyer_#{ @buyer.id }"), notice: "Buyer was successfully updated." }
+        format.html { redirect_to buyers_path(anchor: "buyer_#{ @buyer.id }"), notice: 'Buyer was successfully updated.' }
         format.json { render :show, status: :ok, location: @buyer }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class BuyersController < ApplicationController
   def destroy
     @buyer.destroy
     respond_to do |format|
-      format.html { redirect_to buyers_path(anchor: "buyer_#{ @buyer.id }"), notice: "Buyer was successfully deleted." }
+      format.html { redirect_to buyers_path(anchor: 'buyer_#{ @buyer.id }'), notice: 'Buyer was successfully deleted.' }
       format.json { head :no_content }
     end
   end
