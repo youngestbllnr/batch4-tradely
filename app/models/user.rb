@@ -1,8 +1,6 @@
 class User < ApplicationRecord
-  has_many :buyersstocks
-  
-  enum role: { buyer: "buyer", pending_broker: "pending_broker", broker: "broker", admin: "admin" } 
-  
+  enum role: { buyer: 'buyer', pending_broker: 'pending_broker', broker: 'broker', admin: 'admin' }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable

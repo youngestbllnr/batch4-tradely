@@ -3,7 +3,7 @@ class BrokersController < ApplicationController
 
   # GET /brokers
   def index
-   	@brokers = User.all.where(role: 'broker')
+    @brokers = User.all.where(role: 'broker')
     @brokers = @brokers.order('id DESC')
     counts(@brokers)
     @brokers = @today if params[:period] == 'today'
@@ -24,7 +24,7 @@ class BrokersController < ApplicationController
   # POST /brokers/approve
   def approve
     @broker = User.find(params[:id])
-    @broker.update_attribute(:role, 'broker')
+    @broker.update(role: 'broker')
     flash[:success] = 'Broker was successfully approved.'
     redirect_to pending_brokers_path
   end

@@ -51,6 +51,8 @@ end
 
 # Cabybara Login
 def admin_login(user)
+  user.confirm
+  
   visit new_user_session_path
   fill_in('Email Address', with: user.email)
   fill_in('Password', with: user.password)
