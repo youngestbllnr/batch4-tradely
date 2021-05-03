@@ -1,0 +1,19 @@
+default: &default
+  host: <%= ENV.fetch("DATABASE_HOST") { 'localhost' } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
+  adapter: postgresql
+  username: <%= ENV.fetch("DATABASE_USERNAME") { 'avionschool' } %>
+  password: <%= ENV.fetch("DATABASE_PASSWORD") { 'avionschool' } %>
+
+development: 
+  <<: *default
+  database: db/tradely_development
+
+test:
+  <<: *default
+  database: db/tradely_test
+
+production:
+  <<: *default
+  detabase: tradely_production
