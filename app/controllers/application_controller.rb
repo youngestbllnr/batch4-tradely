@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+	protect_from_forgery with: :exception
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
+	before_action :configure_permitted_parameters, if: :devise_controller?
 
 	def after_sign_in_path_for(resource)
 		case resource.role
 		when 'buyer'
-    	buyer_dashboard_path
+				buyer_dashboard_path
 		when 'pending_broker'
 			broker_dashboard_path
 		when 'broker'
@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
 		else
 			admin_dashboard_path
 		end
-  end
+	end
 
-  def admin?
+	def admin?
 		current_user.role == 'admin'
 	end
 
@@ -69,7 +69,7 @@ class ApplicationController < ActionController::Base
 		@this_month = this_month(query)
 	end
 
-  protected
+	protected
 
 	def configure_permitted_parameters
 		devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:firstname, :lastname, :email, :password, :role) }
