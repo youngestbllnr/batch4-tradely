@@ -1,6 +1,3 @@
 class MainController < ApplicationController
-
-    # GET /
-    def index; end
-
+  def index; end
 end

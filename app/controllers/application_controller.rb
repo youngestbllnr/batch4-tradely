@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def after_sign_in_path_for(resource)
+	def after_sign_in_path_for(resource)
 		case resource.role
-		when "buyer"
+		when 'buyer'
     	buyer_dashboard_path
-		when "pending_broker"
+		when 'pending_broker'
 			broker_dashboard_path
-		when "broker"
+		when 'broker'
 			broker_dashboard_path
 		else
 			admin_dashboard_path
@@ -17,34 +17,34 @@ class ApplicationController < ActionController::Base
   end
 
   def admin?
-		current_user.role == "admin"
+		current_user.role == 'admin'
 	end
 
 	def broker?
-		current_user.role == "broker"
+		current_user.role == 'broker'
 	end
 
 	def buyer?
-		current_user.role == "buyer"
+		current_user.role == 'buyer'
 	end
 
 	def unless_admin
 		unless admin?
-			flash[:danger] = "Unauthorized Access."
+			flash[:danger] = 'Unauthorized Access.'
 			redirect_to root_path
 		end
 	end
 
 	def unless_broker
 		unless broker?
-			flash[:danger] = "Unauthorized Access."
+			flash[:danger] = 'Unauthorized Access.'
 			redirect_to root_path
 		end
 	end
 
 	def unless_buyer
 		unless buyer?
-			flash[:danger] = "Unauthorized Access."
+			flash[:danger] = 'Unauthorized Access.'
 			redirect_to root_path
 		end
 	end
