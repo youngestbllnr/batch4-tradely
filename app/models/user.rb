@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_many :buyersstocks
-  has_many :transactions
   
   enum role: { buyer: "buyer", pending_broker: "pending_broker", broker: "broker", admin: "admin" } 
   
