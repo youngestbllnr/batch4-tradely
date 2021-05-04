@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
   end
 
   def admin
-    @transactions = User.all.where(role: 'transaction')
+    @transactions = Transaction.all
     @transactions = @transactions.order('id DESC')
     counts(@transactions)
     @transactions = @today if params[:period] == 'today'
