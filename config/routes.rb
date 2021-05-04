@@ -4,10 +4,18 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
-  # Dashboard
+  # Dashboards
   get 'dashboard/buyer'     => 'dashboards#buyer'        , as: 'buyer_dashboard'
   get 'dashboard/broker'    => 'dashboards#broker'       , as: 'broker_dashboard'
   get 'dashboard/admin'     => 'dashboards#admin'        , as: 'admin_dashboard'
+
+  # Portfolios
+  get 'portfolio/buyer'     => 'portfolios#buyer'        , as: 'buyer_portfolio'
+  get 'portfolio/broker'    => 'portfolios#broker'       , as: 'broker_portfolio'
+
+  # Transactions
+  get 'transactions/buyer'     => 'transactions#buyer'        , as: 'buyer_transactions'
+  get 'transactions/broker'    => 'transactions#broker'       , as: 'broker_transactions'
 
   # Brokers
   get 'brokers'             => 'brokers#index'           , as: 'brokers'
