@@ -30,14 +30,13 @@
             </p>
         <% end %>
 
-        <!-- Link to Transactions 
-        <%# link_to transactions_path, class: "in-text no-underline" do %>
-            <p class="nav-btn <%# 'active' if current_page?(transactions_path) %>">
+        <!-- Link to Transactions -->
+        <%= link_to admin_transactions_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%= 'active' if current_page?(admin_transactions_path) %>">
                 <span class="icon">💳</span> 
                 Transactions
             </p>
-        <%# end %>
-        -->
+        <% end %>
 
         <!-- Link to Pending Brokers -->
         <%= link_to pending_brokers_path, class: "in-text no-underline" do %>
