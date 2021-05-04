@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get 'portfolio/broker'    => 'portfolios#broker'       , as: 'broker_portfolio'
 
   # Transactions
-  get 'transactions/buyer'     => 'transactions#buyer'        , as: 'buyer_transactions'
-  get 'transactions/broker'    => 'transactions#broker'       , as: 'broker_transactions'
+  get 'transactions/buyer'  => 'transactions#buyer'      , as: 'buyer_transactions'
+  get 'transactions/broker' => 'transactions#broker'     , as: 'broker_transactions'
+  get 'transactions/admin'  => 'transactions#admin'      , as: 'admin_transactions'
 
   # Brokers
   get 'brokers'             => 'brokers#index'           , as: 'brokers'
