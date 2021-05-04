@@ -25,6 +25,7 @@ class BrokersController < ApplicationController
   def approve
     @broker = User.find(params[:id])
     @broker.update(role: 'broker')
+    UserNotifierMailer.send_approval_notification(@broker).deliver
     flash[:success] = 'Broker was successfully approved.'
     redirect_to pending_brokers_path
   end

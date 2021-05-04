@@ -30,6 +30,7 @@ class BuyersController < ApplicationController
 
     respond_to do |format|
       if @buyer.save && @buyer.confirm
+        UserNotifierMailer.send_signup_email(@buyer).deliver
         format.html { redirect_to buyers_path(anchor: "buyer_#{@buyer.id}"), notice: 'Buyer was successfully created.' }
         format.json { render :show, status: :created, location: @buyer }
       else
