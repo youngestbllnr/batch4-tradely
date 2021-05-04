@@ -4,9 +4,13 @@ class DashboardsController < ApplicationController
   before_action :unless_broker, only: :broker
   before_action :unless_buyer, only: :buyer
 
-  def buyer; end
+  def buyer
+    @stocks = BrokersStock.all
+  end
 
-  def broker; end
+  def broker
+    @stocks = Stock.list
+  end
 
   def admin; end
 end
