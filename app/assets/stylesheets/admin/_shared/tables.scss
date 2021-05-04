@@ -18,9 +18,12 @@
     grid-template-columns: 1fr repeat(3, 2fr) 1fr 1fr;
 }
 
-#table.brokers .row,
-#table.transactions .row {
+#table.brokers .row {
     grid-template-columns: 1fr repeat(3, 2fr);
+}
+
+#table.transactions .row {
+    grid-template-columns: 1fr repeat(2, 2fr) 1fr 1fr 2fr;
 }
 
 #table .row {
