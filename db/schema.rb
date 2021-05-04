@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_120331) do
+ActiveRecord::Schema.define(version: 2021_05_04_122758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 2021_05_04_120331) do
   create_table "buyers_stocks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "stock_id", null: false
+    t.decimal "price"
+    t.decimal "units"
+    t.integer "broker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["stock_id"], name: "index_buyers_stocks_on_stock_id"
@@ -45,13 +48,13 @@ ActiveRecord::Schema.define(version: 2021_05_04_120331) do
 
   create_table "transactions", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "buyers_stock_id", null: false
+    t.bigint "stock_id", null: false
     t.decimal "price"
     t.decimal "units"
     t.integer "broker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["buyers_stock_id"], name: "index_transactions_on_buyers_stock_id"
+    t.index ["stock_id"], name: "index_transactions_on_stock_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
@@ -84,6 +87,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_120331) do
   add_foreign_key "brokers_stocks", "users"
   add_foreign_key "buyers_stocks", "stocks"
   add_foreign_key "buyers_stocks", "users"
-  add_foreign_key "transactions", "buyers_stocks"
+  add_foreign_key "transactions", "stocks"
   add_foreign_key "transactions", "users"
 end
