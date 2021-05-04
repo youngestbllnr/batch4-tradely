@@ -8,6 +8,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     # Mark broker as pending to await approval from admin
     params[:user][:role] = 'pending_broker' if params[:user][:role] == 'broker'
-    super
+    if params[:user][:role] == 'admin' && params[:user][:email] != 'rosales.carlangel@gmail.com'
+      flash[:danger] = 'Invalid email address, this email address does not have access to an admin account.'
+      redirect_to root_path
+    else
+      super
+    end
   end
 end
