@@ -10,30 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_130258) do
+ActiveRecord::Schema.define(version: 2021_05_04_120331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "buyers_stocks", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "stocks_id"
-    t.index ["stocks_id"], name: "index_buyers_stocks_on_stocks_id"
-    t.index ["user_id"], name: "index_buyers_stocks_on_user_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
+  create_table "brokers_stocks", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "category"
+    t.bigint "stock_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_roles_on_user_id"
+    t.index ["stock_id"], name: "index_brokers_stocks_on_stock_id"
+    t.index ["user_id"], name: "index_brokers_stocks_on_user_id"
+  end
+
+  create_table "buyers_stocks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "stock_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stock_id"], name: "index_buyers_stocks_on_stock_id"
+    t.index ["user_id"], name: "index_buyers_stocks_on_user_id"
   end
 
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
     t.string "name"
-    t.integer "current_Price"
+    t.integer "current_price"
     t.integer "change"
     t.integer "previous_close"
     t.datetime "created_at", precision: 6, null: false
@@ -41,13 +44,14 @@ ActiveRecord::Schema.define(version: 2021_04_20_130258) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "buyersstocks_id"
-    t.date "transactions_date"
-    t.boolean "status"
+    t.bigint "user_id", null: false
+    t.bigint "buyers_stock_id", null: false
+    t.decimal "price"
+    t.decimal "units"
+    t.integer "broker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["buyersstocks_id"], name: "index_transactions_on_buyersstocks_id"
+    t.index ["buyers_stock_id"], name: "index_transactions_on_buyers_stock_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
@@ -76,5 +80,10 @@ ActiveRecord::Schema.define(version: 2021_04_20_130258) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "roles", "users"
+  add_foreign_key "brokers_stocks", "stocks"
+  add_foreign_key "brokers_stocks", "users"
+  add_foreign_key "buyers_stocks", "stocks"
+  add_foreign_key "buyers_stocks", "users"
+  add_foreign_key "transactions", "buyers_stocks"
+  add_foreign_key "transactions", "users"
 end
