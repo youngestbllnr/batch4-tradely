@@ -49,12 +49,22 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
 end
 
-# Cabybara Login
-def admin_login(user)
+# Cabybara Login Helper
+def user_login(user)
   user.confirm
   
   visit new_user_session_path
   fill_in('Email Address', with: user.email)
   fill_in('Password', with: user.password)
   click_on('Log In')
+end
+
+# Capybara Add Brokers Stocks Helper
+def add_broker_stocks(broker)
+  user_login(broker)
+
+  visit broker_dashboard_path
+  click_on('Add to Portfolio', match: :first)
+  
+  visit destroy_user_session_path
 end

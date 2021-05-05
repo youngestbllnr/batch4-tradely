@@ -5,7 +5,7 @@ RSpec.describe 'Administrator', type: :feature do
     let!(:admin) { create(:user, :admin) }
 
     it 'redirects to buyers index when all fields are valid' do
-      admin_login(admin)
+      user_login(admin)
 
       visit new_buyer_path
       fill_in('First Name', with: 'Carl Angel')
@@ -19,7 +19,7 @@ RSpec.describe 'Administrator', type: :feature do
     end
 
     it 'renders :new when email is taken or invalid' do
-      admin_login(admin)
+      user_login(admin)
 
       visit new_buyer_path
       fill_in('First Name', with: 'Carl Angel')
@@ -33,7 +33,7 @@ RSpec.describe 'Administrator', type: :feature do
     end
 
     it 'redirects to buyers index when passwords do not match' do
-      admin_login(admin)
+      user_login(admin)
 
       visit new_buyer_path
       fill_in('First Name', with: 'Carl Angel')
@@ -52,7 +52,7 @@ RSpec.describe 'Administrator', type: :feature do
     let!(:buyer) { create(:user, :buyer) }
 
     it 'redirects to buyers index when all fields are valid' do
-      admin_login(admin)
+      user_login(admin)
 
       visit edit_buyer_path(buyer)
       fill_in('First Name', with: 'Carl Angel')
@@ -66,7 +66,7 @@ RSpec.describe 'Administrator', type: :feature do
     end
 
     it 'renders :new when email is taken or invalid' do
-      admin_login(admin)
+      user_login(admin)
 
       visit edit_buyer_path(buyer)
       fill_in('First Name', with: 'Carl Angel')
@@ -80,7 +80,7 @@ RSpec.describe 'Administrator', type: :feature do
     end
 
     it 'redirects to buyers index when passwords do not match' do
-      admin_login(admin)
+      user_login(admin)
 
       visit edit_buyer_path(buyer)
       fill_in('First Name', with: 'Carl Angel')
@@ -100,7 +100,7 @@ RSpec.describe 'Administrator', type: :feature do
     before { create(:user, :buyer) }
 
     it 'redirects to buyers index after deletion' do
-      admin_login(admin)
+      user_login(admin)
 
       visit buyers_path
       click_on('Delete')
@@ -114,7 +114,7 @@ RSpec.describe 'Administrator', type: :feature do
     let!(:buyer) { create(:user, :buyer) }
 
     it 'displays all information about the buyer' do
-      admin_login(admin)
+      user_login(admin)
 
       visit buyer_path(buyer)
 
@@ -131,7 +131,7 @@ RSpec.describe 'Administrator', type: :feature do
     end
 
     it 'displays verified brokers' do
-      admin_login(admin)
+      user_login(admin)
 
       visit brokers_path
 
@@ -139,7 +139,7 @@ RSpec.describe 'Administrator', type: :feature do
     end
 
     it 'displays pending brokers' do
-      admin_login(admin)
+      user_login(admin)
 
       visit pending_brokers_path
 
@@ -147,7 +147,7 @@ RSpec.describe 'Administrator', type: :feature do
     end
 
     it 'approves a pending broker' do
-      admin_login(admin)
+      user_login(admin)
 
       visit pending_brokers_path
       click_on('Approve')
