@@ -40,7 +40,7 @@ Rails.application.routes.draw do
                       }
   
   resources :buyers
-  resources :buyersstocks
-  resources :brokersstocks
+  resources :buyers_stocks
+  resources :brokers_stocks
   resources :stocks
 end
