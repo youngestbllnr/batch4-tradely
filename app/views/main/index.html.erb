@@ -1,0 +1,33 @@
+<% content_for :layer_foreground_class, "index-foreground" %>
+<!-- Index Page -->
+<div id="index" class="page">
+    <!-- Page Background -->
+    <div class="page-background"></div>
+    <!-- Page Foreground -->
+    <div class="page-foreground">
+        <!-- Header -->
+        <header id="brand">
+            <a href="/" class="no-underline">
+                <p class="logo">TRADELY</p>
+            </a>
+        </header>
+        <!-- Main Section -->
+        <main id="hero">
+            <p id="emoji">📈</p>
+            <p id="header">Trade anywhere, everywhere</p>
+            <p id="sub-header">Access the stock market from the palm of your hand. Monitor your investments in real-time and reach your goals.</p>
+            <div id="usp">
+                <p class="check"><span>✔</span> Access the market</p>
+                <p class="check"><span>✔</span> Track investments</p>
+                <p class="check"><span>✔</span> Reach your goals</p>
+                <p class="check"><span>✔</span> Quick registration</p>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer id="actions">
+            <%= link_to "Become a Broker >>", new_user_registration_path(:role => "broker"), id: "broker-signup-btn" %>
+            <%= link_to "Sign Up", new_user_registration_path, id: "signup-btn", class: "cta" %>
+            <%= link_to "Log In", new_user_session_path, id: "login-btn", class: "sub-cta" %>
+        </footer>
+    </div>
+</div>
