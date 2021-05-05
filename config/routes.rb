@@ -43,4 +43,5 @@ Rails.application.routes.draw do
   resources :buyers_stocks
   resources :brokers_stocks
   resources :stocks
+  resources :transactions
 end
