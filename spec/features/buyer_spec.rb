@@ -46,7 +46,7 @@ RSpec.describe 'Buyer', type: :feature do
 
   describe 'transaction monitoring' do
     let!(:buyer) { create(:user, :buyer) }
-    
+
     it 'displays all stocks that can be added to portfolio' do
       user_login(buyer)
 
