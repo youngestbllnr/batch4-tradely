@@ -60,15 +60,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default :charset => "utf-8" 
 
   config.action_mailer.smtp_settings = {
     address: "smtp.sendgrid.net",
     port: 587,
-    domain: Rails.application.credentials.sendgrid[:domain],
+    domain: domain: ENV["SENDGRID_DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "apikey",
-    password: Rails.application.credentials.sendgrid[:api_key]
+    password: ENV["SENDGRID_API_KEY"]
   }
 end
