@@ -39,9 +39,8 @@ ActiveRecord::Schema.define(version: 2021_05_04_122758) do
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
     t.string "name"
-    t.integer "current_price"
-    t.integer "change"
-    t.integer "previous_close"
+    t.decimal "price"
+    t.string "change"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
