@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def unless_broker
-    redirect_to root_path, notice: 'Unauthorized Access.' unless broker?
+    redirect_to root_path, notice: 'Unauthorized Access. Please wait until your broker account has been approved by an admin.' unless broker?
   end
 
   def unless_buyer

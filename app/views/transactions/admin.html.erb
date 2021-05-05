@@ -1,9 +1,9 @@
 <% content_for :title, "Transactions / Tradely" %>
-<% content_for :layer_foreground_class, "admin-foreground" %>
-<% content_for :layer_background_class, "admin-background" %>
+<% content_for :layer_foreground_class, "foreground" %>
+<% content_for :layer_background_class, "background" %>
 <% content_for :notice_float_position, "bottom" %>
 <!-- Index Page -->
-<div id="index" class="admin-dashboard">
+<div id="index" class="dashboard">
     <%= render "admin/_shared/sidebar" %>
     <div id="body">
         <header>
@@ -40,7 +40,7 @@
                     <p class="column">Broker</p>
                     <p class="column">Stock</p>
                     <p class="column">Units</p>
-                    <p class="column">Date</p>
+                    <p class="column">Date/Time</p>
                 </div>
                 <% @transactions.each do |transaction| %>
                     <div id="transaction_<%= transaction.id %>" class="row">

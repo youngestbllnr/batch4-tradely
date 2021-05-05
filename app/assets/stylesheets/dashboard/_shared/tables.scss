@@ -4,8 +4,9 @@
     overflow: auto;
 }
 
-#table.notifications {
-    margin: 16px 0 124px;
+#table.market,
+#table.buyer-portfolio {
+    margin: 24px 0 124px;
 }
 
 #table .row {
@@ -18,8 +19,16 @@
     grid-template-columns: 1fr repeat(3, 2fr) 1fr 1fr;
 }
 
+#table.buyer-portfolio .row {
+    grid-template-columns: repeat(6, 2fr);
+}
+
 #table.brokers .row {
     grid-template-columns: 1fr repeat(3, 2fr);
+}
+
+#table.market .row {
+    grid-template-columns: 4fr repeat(3, 2fr);
 }
 
 #table.transactions .row {
@@ -41,6 +50,7 @@
     font-size: 10pt;
     white-space: pre;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #table #headers .column {

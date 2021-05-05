@@ -1,0 +1,37 @@
+<% content_for :title, "Stock Market / Tradely" %>
+<% content_for :layer_foreground_class, "foreground" %>
+<% content_for :layer_background_class, "background" %>
+<% content_for :notice_float_position, "bottom" %>
+<!-- Index Page -->
+<div id="index" class="dashboard">
+    <%= render "brokers/_shared/sidebar" %>
+    <main id="body">
+        <header>
+            <h1 id="header"><span class="icon">💵</span> Stock Market</h1>
+        </header>
+        <main>
+            <div id="table" class="card market">
+                <div id="headers" class="row">
+                    <p class="column">Company Name</p>
+                    <p class="column">Price</p>
+                    <p class="column">Change %</p>
+                    <p class="column">--</p>
+                </div>
+                <% @stocks.each do |stock| %>
+                    <div id="stock_<%= stock.id %>" class="row">
+                        <p class="column"><%= "#{stock.name} (#{stock.symbol})" %></p>
+                        <p class="column"><%= currency(stock.price) %></p>
+                        <p class="column"><%= stock.change %></p>
+                        <% if @brokers_stocks.where(stock_id: stock.id).present? %>
+                            <p class="column">Added</p>
+                        <% else %>
+                            <%= link_to brokers_stocks_path(:stock_id => stock.id, :stock_symbol => stock.symbol), method: :post, class: "in-text" do %>
+                                <p class="column">Add to Portfolio</p>
+                            <% end %>
+                        <% end %>
+                    </div>
+                <% end %>            
+            </div>
+        </main>
+    </main>
+</div>

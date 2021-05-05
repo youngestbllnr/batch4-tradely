@@ -1,0 +1,37 @@
+<aside id="sidebar">
+    <!-- Header -->
+    <header id="brand">
+        <a href="/dashboard/broker" class="no-underline">
+            <p class="logo">Tradely</p>
+        </a>
+    </header>
+    <!-- Main: Navigation -->
+    <main id="navigation">
+        <%= link_to broker_dashboard_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%= 'active' if current_page?(broker_dashboard_path) %>">
+                <span class="icon">🏠</span> 
+                Home
+            </p>
+        <% end %>
+
+        <!-- Link to Portfolio -->
+        <%= link_to broker_portfolio_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%= 'active' if current_page?(broker_portfolio_path) %>">
+                <span class="icon">📊</span> 
+                Portfolio
+            </p>
+        <% end %>
+
+        <!-- Link to Transactions -->
+        <%= link_to broker_transactions_path, class: "in-text no-underline" do %>
+            <p class="nav-btn <%= 'active' if current_page?(broker_transactions_path) %>">
+                <span class="icon">💳</span> 
+                Transactions
+            </p>
+        <% end %>
+    </main>
+    <!-- Footer -->
+    <footer id="actions">
+        <%= link_to "<i class='fal fa-sign-out'></i> Sign Out".html_safe, destroy_user_session_path, id: "signout-btn", class: "sub-cta" %>
+    </footer>
+</aside>

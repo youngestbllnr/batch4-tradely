@@ -1,27 +1,27 @@
-.admin-dashboard #counts {
+.dashboard #counts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 12px;
     margin-top: -16px;
 }
 
-.admin-dashboard #counts:first-child {
+.dashboard #counts:first-child {
     margin: 4px 0 0;
 }
 
-.admin-dashboard .count .icon {
+.dashboard .count .icon {
     margin: 0;
     font-size: 20pt;
 }
 
-.admin-dashboard .count .label {
+.dashboard .count .label {
     font-size: 10pt;
     font-weight: bold;
     margin: 12px 0 6px;
     opacity: 0.8;
 }
 
-.admin-dashboard .count .value {
+.dashboard .count .value {
     margin: 0;
     font-weight: 800;
     font-size: 12pt;

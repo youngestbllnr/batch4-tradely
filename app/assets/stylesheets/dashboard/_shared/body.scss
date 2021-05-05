@@ -1,15 +1,15 @@
-.admin-dashboard #body {
+.dashboard #body {
     padding: 42px;
     height: calc(100vh - 84px);
     overflow: auto;
 }
 
-.admin-dashboard #body #header {
+.dashboard #body #header {
     margin: 0;
     font-size: 16pt;
     font-weight: 800;
 }
 
-.admin-dashboard #body #header span {
+.dashboard #body #header span {
     margin-right: 5px;
 }

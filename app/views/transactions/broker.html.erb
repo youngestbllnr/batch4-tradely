@@ -1,0 +1,58 @@
+<% content_for :title, "Transactions / Tradely" %>
+<% content_for :layer_foreground_class, "foreground" %>
+<% content_for :layer_background_class, "background" %>
+<% content_for :notice_float_position, "bottom" %>
+<!-- Index Page -->
+<div id="index" class="dashboard">
+    <%= render "brokers/_shared/sidebar" %>
+    <div id="body">
+        <header>
+            <div id="periods">
+                <%= link_to "Day", admin_transactions_path(period: "today"), class: "in-text no-underline #{ 'active' if params[:period] == "today" }" %>▪
+                <%= link_to "Week", admin_transactions_path(period: "this_week"), class: "in-text no-underline #{ 'active' if params[:period] == "this_week" }" %>▪
+                <%= link_to "Month", admin_transactions_path(period: "this_month"), class: "in-text no-underline #{ 'active' if params[:period] == "this_month" }" %>▪
+                <%= link_to "All Time", admin_transactions_path(period: "all_time"), class: "in-text no-underline #{ 'active' if params[:period] == "all_time" || params[:period].blank? }" %>
+            </div>
+            <h1 id="header"><span class="icon">💳</span> Transactions</h1>
+        </header>
+        <main>
+            <div id="counts">
+                <div class="count card">
+                    <p class="icon">⛅</p>
+                    <p class="label">Today</p>
+                    <p class="value"><%= @today.count %></p>
+                </div>
+                <div class="count card">
+                    <p class="icon">🎈</p>
+                    <p class="label">This Week</p>
+                    <p class="value"><%= @this_week.count %></p>
+                </div>
+                <div class="count card">
+                    <p class="icon">📅</p>
+                    <p class="label">This Month</p>
+                    <p class="value"><%= @this_month.count %></p>
+                </div>
+            </div>
+            <div id="table" class="card transactions">
+                <div id="headers" class="row">
+                    <p class="column">ID</p>
+                    <p class="column">Buyer</p>
+                    <p class="column">Stock</p>
+                    <p class="column">Units</p>
+                    <p class="column">Total</p>
+                    <p class="column">Date/Time</p>
+                </div>
+                <% @transactions.each do |transaction| %>
+                    <div id="transaction_<%= transaction.id %>" class="row">
+                        <p class="column"><%= transaction.id %></p>
+                        <p class="column"><%= transaction.user.email %></p>
+                        <p class="column"><%= transaction.stock.symbol %></p>
+                        <p class="column"><%= transaction.units %></p>
+                        <p class="column"><%= currency(transaction.units * transaction.stock.price) %></p>
+                        <p class="column"><%= transaction.created_at.strftime("%b %e, %Y — %l:%M %p") %></p>
+                    </div>
+                <% end %>            
+            </div>
+        </main>
+    </div>
+</div>

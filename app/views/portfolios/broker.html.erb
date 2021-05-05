@@ -1,0 +1,33 @@
+<% content_for :title, "Portfolio / Tradely" %>
+<% content_for :layer_foreground_class, "foreground" %>
+<% content_for :layer_background_class, "background" %>
+<% content_for :notice_float_position, "bottom" %>
+<!-- Index Page -->
+<div id="index" class="dashboard">
+    <%= render "brokers/_shared/sidebar" %>
+    <main id="body">
+        <header>
+            <h1 id="header"><span class="icon">📊</span> Portfolio</h1>
+        </header>
+        <main>
+            <div id="table" class="card market">
+                <div id="headers" class="row">
+                    <p class="column">Company Name</p>
+                    <p class="column">Price</p>
+                    <p class="column">Change %</p>
+                    <p class="column">--</p>
+                </div>
+                <% @stocks.each do |brokers_stock| %>
+                    <div id="stock_<%= brokers_stock.id %>" class="row">
+                        <p class="column"><%= "#{brokers_stock.stock.name} (#{brokers_stock.stock.symbol})" %></p>
+                        <p class="column"><%= currency(brokers_stock.stock.price) %></p>
+                        <p class="column"><%= brokers_stock.stock.change %></p>
+                        <%= link_to brokers_stock_path(brokers_stock), method: :delete, class: "in-text" do %>
+                            <p class="column">Remove</p>
+                        <% end %>
+                    </div>
+                <% end %>            
+            </div>
+        </main>
+    </main>
+</div>

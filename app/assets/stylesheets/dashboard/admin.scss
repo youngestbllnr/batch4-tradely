@@ -1,4 +1,4 @@
-.admin-dashboard #welcome {
+.dashboard #welcome {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,18 +7,18 @@
     text-align: center;
 }
 
-.admin-dashboard #welcome .icon {
+.dashboard #welcome .icon {
     margin: -24px 0 0;
     font-size: 72pt;
 }
 
-.admin-dashboard #welcome .title {
+.dashboard #welcome .title {
     font-size: 14pt;
     font-weight: bold;
     margin: 24px 0 12px;
 }
 
-.admin-dashboard #welcome .sub {
+.dashboard #welcome .sub {
     font-size: 11pt;
     margin: 0;
     opacity: 0.8;
