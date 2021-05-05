@@ -35,7 +35,7 @@
             </div>
             <div id="table" class="card transactions">
                 <div id="headers" class="row">
-                    <p class="column">ID</p>
+                    <p class="column">Type</p>
                     <p class="column">Broker</p>
                     <p class="column">Stock</p>
                     <p class="column">Units</p>
@@ -44,7 +44,7 @@
                 </div>
                 <% @transactions.each do |transaction| %>
                     <div id="transaction_<%= transaction.id %>" class="row">
-                        <p class="column"><%= transaction.id %></p>
+                        <p class="column"><%= transaction.category.capitalize %></p>
                         <p class="column"><%= User.find(transaction.broker_id).email %></p>
                         <p class="column"><%= transaction.stock.symbol %></p>
                         <p class="column"><%= transaction.units %></p>
