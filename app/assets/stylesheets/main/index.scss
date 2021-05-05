@@ -1,28 +1,28 @@
 // Hero
-#index #hero {
+#landing-page #hero {
     margin: 42px auto;
 }
 
-#index #hero #emoji {
+#landing-page #hero #emoji {
     font-size: 28pt;
     margin: 0 0 0 -2px;
 }
 
-#index #hero #header {
+#landing-page #hero #header {
     font-weight: 900;
     font-size: 18pt;
     margin: 12px 0 6px;
     line-height: 150%;
 }
 
-#index #hero #sub-header {
+#landing-page #hero #sub-header {
     line-height: 180%;
     font-weight: bold;
     font-size: 12pt;
     margin: 6px 0;
 }
 
-#index #hero #usp {
+#landing-page #hero #usp {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -30,29 +30,29 @@
     margin: 6px 0;
 }
 
-#index #hero #usp .check {
+#landing-page #hero #usp .check {
     font-size: 12pt;
     margin: 12px 0;
 }
 
-#index #hero #usp .check span {
+#landing-page #hero #usp .check span {
     font-weight: bold;
     color: #56941E;
     margin-right: 5px;
 }
 
-#index #actions {
+#landing-page #actions {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
 }
 
-#index #actions a {
+#landing-page #actions a {
     margin: 12px 0 0;
 }
 
-#index #actions a#broker-signup-btn {
+#landing-page #actions a#broker-signup-btn {
     display: block;
     color: #534292;
     font-size: 10pt;
@@ -62,7 +62,7 @@
 }
 
 @media screen and (max-width: 450px) {
-    #index #hero #usp {
+    #landing-page #hero #usp {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: auto;
